@@ -24,14 +24,12 @@ function fizzbuzz(num) {
     } else if (i % 5 === 0) {
       output.push('buzz');
     } else if (i % 3 === 0) {
-      output.push('fizz')
+      output.push('fizz');
     } else {
-      output.push(i)
+      output.push(i);
     }
   }
   return output;
 }
-
-console.log(fizzbuzz(30))
 
 module.exports = fizzbuzz;
