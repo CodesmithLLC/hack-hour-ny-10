@@ -17,7 +17,15 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+    let result = [];
+    while (num){
+        let string = ''
+        if (num % 3 === 0) string += 'fizz';
+        if (num % 5 === 0) string += 'buzz';
+        result.unshift(string ? string : num);
+        num--;
+    }
+    return result;
 }
 
 module.exports = fizzbuzz;
