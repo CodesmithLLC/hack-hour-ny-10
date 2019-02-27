@@ -18,6 +18,7 @@
 
 function fizzbuzz(num) {
   const output = [];
+
   for (let i = 1; i <= num; i += 1) {
     if (i % 5 === 0 && i % 3 === 0) {
       output.push('fizzbuzz');
@@ -29,6 +30,7 @@ function fizzbuzz(num) {
       output.push(i);
     }
   }
+
   return output;
 }
 
