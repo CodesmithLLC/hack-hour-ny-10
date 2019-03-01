@@ -20,19 +20,22 @@ function drawStairs(n) {
     let whiteSpace = " ";
     let stars = "*";
 
+    let output = "";
 
     while (stairs <= n) {
         let left = whiteSpace.repeat(spaces);
         let right = stars.repeat(stairs);
 
-        console.log(left + right);
+        output += left + right + "\n";
 
         spaces--;
         stairs++;
     }
+    
+    return output;
 }
 
-// drawStairs(6);
+console.log(drawStairs(5));
 
 
 module.exports = drawStairs;
