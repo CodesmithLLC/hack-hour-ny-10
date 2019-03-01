@@ -14,8 +14,14 @@
 */
 
 function drawStairs(n) {
-
+  let stairs = "";
+  let stars = 1;
+  while (stars <= n) {
+    stairs += `${" ".repeat(n - stars)}${"*".repeat(stars)}\n`;
+    stars++;
+  }
+  console.log(stairs.slice(0, -1));
 }
 
-
+// drawStairs(6);
 module.exports = drawStairs;
