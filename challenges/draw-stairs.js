@@ -14,7 +14,7 @@
 */
 
 function drawStairs(n) {
-    if (n <= 0) return
+    if (n <= 0 || n > 100) return;
     let count = 0;
     let m = n;
     while (count < n + 1) {
