@@ -28,11 +28,11 @@ function drawStairs(n) {
 	let spaces = n-1
 	for (let i = 1; i <= n; i++){
 		let str = '*'
-		output += ' '.repeat(spaces) + str.repeat(i) + '\n'
+		output += ' '.repeat(spaces) + str.repeat(i)
+    if (i !== n) output += '\n'
 		spaces--
 	}
   console.log(output)
-  return output
 }
 
 module.exports = drawStairs;
