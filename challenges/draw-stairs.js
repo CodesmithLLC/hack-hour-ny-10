@@ -15,8 +15,8 @@
 
 function drawStairs(n) {
     if (n <= 0 || n > 100) return;
-    let count = 0;
-    let m = n;
+    let count = 1;
+    let m = n + 1;
     while (count < n + 1) {
         console.log(stair(m, count))
         count += 1;
