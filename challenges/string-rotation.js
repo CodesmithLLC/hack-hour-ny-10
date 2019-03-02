@@ -16,7 +16,14 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  let rotation = s1;
+  for (let i = 0; i < s1.length; i += 1) {
+    if (isSubstring(s2, rotation)) return true;
+    rotation = rotation.slice(1) + rotation[0];
+  }
+  return false;
 }
-
+// console.log('expect true:', stringRotation("hello", "hello"))
+// console.log('expect true:', stringRotation("hello", "llohe"))
+// console.log('expect false:', stringRotation("hello", "he"))
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
