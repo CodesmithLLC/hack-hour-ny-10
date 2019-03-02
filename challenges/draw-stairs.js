@@ -26,8 +26,8 @@ function drawStairs(n) {
         let left = whiteSpace.repeat(spaces);
         let right = stars.repeat(stairs);
 
-        output = left + right;
-        console.log(output);
+        output += left + right + "\n";
+        //console.log(output);
 
         spaces--;
         stairs++;
@@ -36,7 +36,8 @@ function drawStairs(n) {
     return output;
 }
 
-// drawStairs(5);
+ console.log(drawStairs(1));
+ 
 
 
 module.exports = drawStairs;
