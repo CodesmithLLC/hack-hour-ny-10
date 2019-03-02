@@ -13,26 +13,15 @@
 
 */
 
-// first version:
-// function drawStairs(n) {
-// 	let spaces = n-1
-// 	for (let i = 1; i <= n; i++){
-// 		let str = '*'
-// 		console.log(' '.repeat(spaces) + str.repeat(i))
-// 		spaces--
-// 	}
-// }
-
 function drawStairs(n) {
-  let output = ''
-	let spaces = n-1
-	for (let i = 1; i <= n; i++){
-		let str = '*'
-		output += ' '.repeat(spaces) + str.repeat(i)
-    if (i !== n) output += '\n'
-		spaces--
-	}
-  console.log(output)
+  let spaces = n-1
+  for (let i = 1; i <= n; i++){
+    const str = '*'
+    const output = ' '.repeat(spaces) + str.repeat(i)
+    console.log(output);
+    spaces--
+  }
 }
+
 
 module.exports = drawStairs;
