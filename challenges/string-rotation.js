@@ -8,6 +8,7 @@
  * For example: stringRotation("hello", "hello") -> true
  *              stringRotation("hello", "llohe") -> true
  *              stringRotation("hello", "he") -> false
+ *              stringRotation("hello", "llo") -> false
  *              stringRotation("hello", "ollhe") -> false (not a rotation, just an anagram)
  */
 
@@ -16,7 +17,12 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  let cand = s2
+  for (let i = 0; i < s2.length; i++){
+    if (isSubstring(s1,cand)) return true
+    cand =  s2.slice(i) + s2.slice(0,i)
+  }
+  return false
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
