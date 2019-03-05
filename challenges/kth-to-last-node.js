@@ -22,7 +22,35 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  let currentNode = head;
+  let nodeTotal = 0;
+  // count the number of total nodes
+  while (true){
+    nodeTotal++;
+    if (currentNode.next === null) break;
+    currentNode = currentNode.next;
+  }
 
+  // reset current node to head and traverse until we've counted down to the node that we want
+  currentNode = head;
+  while(nodeTotal !== k){
+    currentNode = currentNode.next;
+    nodeTotal--; 
+  }
+  return currentNode.value;
 }
+
+// const a = new Node('A');
+// const b = new Node('B');
+// const c = new Node('C');
+// const d = new Node('D');
+// const e = new Node('E');
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
+
+// console.log(kthToLastNode(1, a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
