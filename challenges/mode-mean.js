@@ -11,6 +11,7 @@
 
 
 function modemean(array) {
+    if(array.length === 1) return true;
     const mean = Math.floor(array.reduce((sum, item) => {
         return sum += item;
     },0)/array.length);
@@ -26,11 +27,11 @@ function modemean(array) {
             mode.key = key;
         }
     }
+    const sum = array.reduce((sum, item) => { return sum += item; })
+    console.log('mode:', mode.key, 'mean:', mean, 'sum:',sum,'/',array.length);
     if(mode.key === mean) return true;
     else return false;
-    //const sum = array.reduce((sum, item) => { return sum += item; })
-    //console.log('mode:', mode.key, 'mean:', mean, 'sum:',sum,'/',array.length);
 }
-//modemean([1,2,3,4,4,4,5,6,6,7,7]);
+//modemean([1,2,3,4,4,4,4,4,4,4,4,5,6,6,7,7]);
 
 module.exports = modemean;
