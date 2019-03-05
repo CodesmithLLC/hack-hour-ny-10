@@ -29,6 +29,7 @@ function kthToLastNode(k, head) {
     arr.push(p1.value);
     p1 = p1.next;
   }
+  if (k > arr.length) return false // in the case the kth to last element is before the head 
   return arr[arr.length - k];
 }
 const a = new Node('A');
