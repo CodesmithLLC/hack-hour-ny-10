@@ -35,8 +35,9 @@ function kthToLastNode(k, head) {
     position++
   }
   console.log(valueArr)
-  return valueArr[k+1]
 
+  if(valueArr[k+1]) return valueArr[k+1]
+  else return undefined
 }
 
 
@@ -51,6 +52,6 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(2, a));
+console.log(kthToLastNode(10, a));
 
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
