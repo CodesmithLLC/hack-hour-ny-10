@@ -22,14 +22,14 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if (head === null) return false;
+  if (head === null) return undefined;
   let p1 = head;
   let arr = [];
   while (p1 !== null) {
     arr.push(p1.value);
     p1 = p1.next;
   }
-  if (k > arr.length) return false // in the case the kth to last element is before the head 
+  if (k > arr.length) return undefined // in the case the kth to last element is before the head 
   return arr[arr.length - k];
 }
 const a = new Node('A');
@@ -45,7 +45,7 @@ c.next = d;
 d.next = e;
 e.next = f;
 
-console.log(kthToLastNode(2, a))
+console.log(kthToLastNode(12, a))
 
 
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
