@@ -33,6 +33,7 @@ function kthToLastNode(k, head) {
 
   // reset current node to head and traverse until we've counted down to the node that we want
   currentNode = head;
+  if (k > nodeTotal) return;
   while(nodeTotal !== k){
     currentNode = currentNode.next;
     nodeTotal--; 
@@ -47,10 +48,10 @@ function kthToLastNode(k, head) {
 // const e = new Node('E');
 
 // a.next = b;
-// b.next = c;
-// c.next = d;
-// d.next = e;
+// // b.next = c;
+// // c.next = d;
+// // d.next = e;
 
-// console.log(kthToLastNode(1, a));
+// console.log(kthToLastNode(3, a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
