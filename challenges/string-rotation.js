@@ -26,4 +26,5 @@ function stringRotation(s1, s2) {
 // console.log('expect true:', stringRotation("hello", "hello"))
 // console.log('expect true:', stringRotation("hello", "llohe"))
 // console.log('expect false:', stringRotation("hello", "he"))
+// console.log('expect false:', stringRotation("hello", "ollhe"))
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

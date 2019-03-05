@@ -21,8 +21,28 @@ function Node(val) {
   this.next = null;
 }
 
-function kthToLastNode(k, head) {
-
+function kthToLastNode(k, head, arr = []) {
+  if (!head) return arr[arr.length - k];
+  
+  arr.push(head.value);
+  return kthToLastNode(k, head.next, arr)
 }
+
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+
+console.log(kthToLastNode(3, a))
+console.log(kthToLastNode(2, a));
+console.log(kthToLastNode(1, a))
+console.log(kthToLastNode(0, a))
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
