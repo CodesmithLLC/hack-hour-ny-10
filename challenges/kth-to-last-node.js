@@ -27,13 +27,9 @@ function kthToLastNode(k, head) {
   }
   const arrayOfVals = [];
   let current = head;
-  let depth = 0;
-
-  // find depth of the linked list
 
   while (current) {
     arrayOfVals.push(current.value);
-    depth += 1;
     current = current.next;
   }
 
