@@ -11,27 +11,32 @@
 
 
 function modemean(array) {
-    let mode = [];
-    let seen = [];
-    let mean = 0;
-    // iterate through array to gather necessary values
-    for (let i = 0; i < array.length; i++){
-        if (!seen.includes(array[i])) seen.push(array[i]);
-        else mode.push(array[i]);
-        mean += array[i];
-    }
-    // calculate mean
-    mean = Math.floor(mean / array.length);
+    let modes = {};
+    let highestOccurence = 0, mean, mode;
+
+    mean = Math.floor(array.reduce((mean, currentNumber) => {
+        if (!modes[currentNumber]) modes[currentNumber] = 1;
+        else modes[currentNumber]++;
+        if (modes[currentNumber] > highestOccurence) highestOccurence = modes[currentNumber];
+        mean += currentNumber;
+        return mean;
+    }, 0) / array.length);
     
-    // calculate mode
-    mode = mode.length === 0 ? Math.max(...seen) : Math.max(...mode)
+    modes = Object.entries(modes).reduce((mode, curr) => {
+        if (mode[curr[1]] !== highestOccurence) delete mode[curr[1]];
+        return mode;
+    }, modes);
     
-    // return whether of not mode is equal to mean
+    mode = Math.max(...Object.keys(modes).map(Number))
+    
+    // console.log(mode, mean)
+    // return whether or not mode is equal to mean
     return mode === mean;
 }
 
-// console.log(modemean([3,3,3]))
-// console.log(modemean([0,2,3,4,5]))
-// console.log(modemean([0,3,3,4,5]))
+console.log(modemean([3,3,3]))
+console.log(modemean([0,2,3,4,5]))
+// console.log(mean)
+// console.log(modemean([1,1,1,3,3,2]))
 
 module.exports = modemean;
