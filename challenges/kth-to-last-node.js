@@ -25,27 +25,15 @@ function kthToLastNode(k, head) {
   if (k <= 0) {
     return undefined;
   }
+  const arrayOfVals = [];
   let current = head;
-  let depth = 1;
 
-  // find depth of the linked list
-
-  while (current.next !== null) {
-    depth += 1;
+  while (current) {
+    arrayOfVals.push(current.value);
     current = current.next;
   }
 
-  current = head;
-  let indexOfKthFromLastNode = depth - k;
-  if (indexOfKthFromLastNode <= 0) {
-    return undefined;
-  }
-
-  while (indexOfKthFromLastNode) {
-    indexOfKthFromLastNode -= 1;
-    current = current.next;
-  }
-  return current.value;
+  return arrayOfVals[arrayOfVals.length - k];
 }
 
 const a = new Node("A");
@@ -59,6 +47,6 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(5, a));
+console.log(kthToLastNode(2, a));
 
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
