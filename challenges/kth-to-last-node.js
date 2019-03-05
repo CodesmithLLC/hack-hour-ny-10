@@ -24,8 +24,6 @@ function Node(val) {
 function kthToLastNode(k, head) {
   if (head === null) return false;
   let p1 = head;
-  let p2 = head;
-  let counter = 0;
   let arr = [];
   while (p1 !== null) {
     arr.push(p1.value);
