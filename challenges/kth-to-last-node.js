@@ -33,7 +33,7 @@ function kthToLastNode(k, head) {
 
   // reset current node to head and traverse until we've counted down to the node that we want
   currentNode = head;
-  if (k > nodeTotal) return;
+  if (k > nodeTotal) return undefined;
   while(nodeTotal !== k){
     currentNode = currentNode.next;
     nodeTotal--; 
