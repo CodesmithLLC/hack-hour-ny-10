@@ -13,11 +13,13 @@
 
 */
 
-function drawStairs(n) {
+function drawStairs(n, char = '*') {
   const SPACE = ' ';
-  let output = '';
-  for (let i = n, j = 1; i > 0; i -= 1, j += 1) output += SPACE.repeat(i) + '*'.repeat(j) + '\n'
-  console.log(output);
+  for (let i = n, j = 1; i > 0; i -= 1, j += 1) {
+    console.log(SPACE.repeat(i) + char.repeat(j) + '\n');
+  }
 }
+
+drawStairs(6)
 
 module.exports = drawStairs;
