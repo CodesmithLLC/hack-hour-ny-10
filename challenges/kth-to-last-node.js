@@ -32,7 +32,7 @@ function kthToLastNode(k, head) {
 	while(front.next !== null) {
 		front = front.next;
 		back = back.next;
-	} return back;
+	} return back.value;
 }
 
 // const a = new Node('A');
