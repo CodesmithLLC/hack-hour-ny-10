@@ -37,6 +37,9 @@ function kthToLastNode(k, head) {
 
   current = head;
   let indexOfKthFromLastNode = depth - k;
+  if (indexOfKthFromLastNode <= 0) {
+    return undefined;
+  }
 
   while (indexOfKthFromLastNode) {
     indexOfKthFromLastNode -= 1;
@@ -44,5 +47,18 @@ function kthToLastNode(k, head) {
   }
   return current.value;
 }
+
+const a = new Node("A");
+const b = new Node("B");
+const c = new Node("C");
+const d = new Node("D");
+const e = new Node("E");
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+
+console.log(kthToLastNode(5, a));
 
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
