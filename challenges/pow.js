@@ -3,7 +3,7 @@
  */
 
 function pow(base, power) {
-  if (power === undefined || base === undefined) return undefined
+  if (power === undefined || base === undefined) return undefined;
   switch (true) {
     case (power === 0):
       return 1;
@@ -19,11 +19,6 @@ function pow(base, power) {
       break;
   }
 }
-console.log(pow(3, -2)) // expect 0.11111111111
-console.log(pow(3, -3)) // expect 0.03703703703
-console.log(pow(3, 0.5)) // expect 1.73205080757
-console.log(pow(3, 1.5)) // expect 5.19615242271
-console.log(pow(3, -1.5)) // expect 0.19245008973
 
 
 
