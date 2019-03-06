@@ -22,23 +22,37 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  let currentNode = head;
-  let nodeTotal = 0;
-  // count the number of total nodes
-  while (true){
-    nodeTotal++;
-    if (currentNode.next === null) break;
-    currentNode = currentNode.next;
-  }
+  // let currentNode = head;
+  // let nodeTotal = 0;
+  // // count the number of total nodes
+  // while (true){
+  //   nodeTotal++;
+  //   if (currentNode.next === null) break;
+  //   currentNode = currentNode.next;
+  // }
 
-  // reset current node to head and traverse until we've counted down to the node that we want
-  currentNode = head;
-  if (k > nodeTotal) return undefined;
-  while(nodeTotal !== k){
-    currentNode = currentNode.next;
-    nodeTotal--; 
+  // // reset current node to head and traverse until we've counted down to the node that we want
+  // currentNode = head;
+  // if (k > nodeTotal) return undefined;
+  // while(nodeTotal !== k){
+  //   currentNode = currentNode.next;
+  //   nodeTotal--; 
+  // }
+  // return currentNode.value;
+
+  let lead = head;
+  let leadIndex = 0;
+  while(leadIndex < k && lead){
+    lead = lead.next
+    leadIndex++;
   }
-  return currentNode.value;
+  if (leadIndex < k) return undefined;
+  let follow = head;
+  while (lead){
+    lead = lead.next;
+    follow = follow.next;
+  }
+  return follow.value;
 }
 
 // const a = new Node('A');
