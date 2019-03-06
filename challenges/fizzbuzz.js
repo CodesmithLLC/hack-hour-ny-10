@@ -16,21 +16,41 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
-  const output = [];
+// function fizzbuzz(num) {
+//   const output = [];
 
+//   for (let i = 1; i <= num; i += 1) {
+//     if (i % 5 === 0 && i % 3 === 0) {
+//       output.push('fizzbuzz');
+//     } else if (i % 5 === 0) {
+//       output.push('buzz');
+//     } else if (i % 3 === 0) {
+//       output.push('fizz');
+//     } else {
+//       output.push(i);
+//     }
+//   }
+
+//   return output;
+// }
+
+const fizzbuzz = (num) => {
+  const output = [];
   for (let i = 1; i <= num; i += 1) {
-    if (i % 5 === 0 && i % 3 === 0) {
-      output.push('fizzbuzz');
-    } else if (i % 5 === 0) {
-      output.push('buzz');
-    } else if (i % 3 === 0) {
-      output.push('fizz');
-    } else {
-      output.push(i);
+    switch (0) {
+      case (i % 15):
+        output.push('fizzbuzz');
+        break;
+      case (i % 5):
+        output.push('buzz')
+        break;
+      case (i % 3):
+        output.push('fizz')
+        break;
+      default:
+        output.push(i)
     }
   }
-
   return output;
 }
 

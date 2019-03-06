@@ -27,13 +27,22 @@
  *
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
-
+  let slowP = this.head;
+  let fastP = this.head;
+  let counter = 0
+  while (fastP !== null) {
+    if (counter % 2) slowP = slowP.next;
+    if (fastP === slowP) return true;
+    fastP = fastP.next;
+    counter++
+  }
+  return false
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node: Node, hasCycle: hasCycle }
