@@ -44,5 +44,6 @@ function kthToLastNode(k, head) {
 // b.next = c;
 // c.next = d;
 // d.next = e;
+// console.log(kthToLastNode(2,a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
