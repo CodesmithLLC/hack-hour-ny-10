@@ -39,10 +39,10 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(3, a))
-console.log(kthToLastNode(2, a));
-console.log(kthToLastNode(1, a))
-console.log(kthToLastNode(0, a))
+// console.log(kthToLastNode(3, a))
+// console.log(kthToLastNode(2, a));
+// console.log(kthToLastNode(1, a))
+// console.log(kthToLastNode(0, a))
 
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
