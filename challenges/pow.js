@@ -5,7 +5,8 @@
 function pow(base, power, result = 1) {
   if (power === 0) return result;
   while (power > 0) {
-    return pow(base, --power, result *= base);
+    return pow(base, --power, (result *= base));
+  }
 }
 
 module.exports = pow;
