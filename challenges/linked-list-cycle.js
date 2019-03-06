@@ -33,28 +33,28 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-  // linear time
-  let seen = [];
-  while(head.next !== null){
-    if (seen.includes(head.next.value)) return true;
-    seen.push(head.value);
-    head = head.next;
-  }
-  return false;
-  
-  // constant space
-  // let curr, stopGate;
-  // while(true){
-  //   curr = head.next;
-  //   stopGate = curr;
-  //   while (true){
-  //     if (curr.next === null) return false;
-  //     else if (curr.next === head.next) return true;
-  //     else if (curr.next === stopGate) break;
-  //     curr = curr.next;
-  //   }
+  // // linear time
+  // let seen = [];
+  // while(head.next !== null){
+  //   if (seen.includes(head.next.value)) return true;
+  //   seen.push(head.value);
   //   head = head.next;
   // }
+  // return false;
+
+  // constant space
+  let curr, stopGate;
+  while(true){
+    curr = head.next;
+    stopGate = curr;
+    while (true){
+      if (curr.next === null) return false;
+      else if (curr.next === head.next) return true;
+      else if (curr.next === stopGate) break;
+      curr = curr.next;
+    }
+    head = head.next;
+  }
 }
 
 var node1 = new Node('1');
