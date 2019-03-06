@@ -48,7 +48,7 @@ function hasCycle(head) {
     curr = head.next;
     stopGate = curr;
     while (true){
-      if (curr.next === null) return false;
+      if (curr.next === null || curr.value === null) return false;
       else if (curr.next === head.next) return true;
       else if (curr.next === stopGate) break;
       curr = curr.next;
