@@ -11,6 +11,12 @@
  *              stringRotation("hello", "ollhe") -> false (not a rotation, just an anagram)
  */
 
+ /**
+  * Summary - takes in two strings and evaluates if the second is found in the first
+  * @param {string} s1 
+  * @param {string} s2
+  * @returns {boolean} returns true if string is found, false otherwise 
+  */
 function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
@@ -18,5 +24,8 @@ function isSubstring(s1, s2) {
 function stringRotation(s1, s2) {
 
 }
+
+console.log(isSubstring('hello', 'he'))
+console.log(isSubstring('hello', 'llo'))
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

@@ -33,7 +33,39 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  // linear time
+  let seen = [];
+  while(head.next !== null){
+    if (seen.includes(head.next.value)) return true;
+    seen.push(head.value);
+    head = head.next;
+  }
+  return false;
+  
+  // constant space
+  // let curr, stopGate;
+  // while(true){
+  //   curr = head.next;
+  //   stopGate = curr;
+  //   while (true){
+  //     if (curr.next === null) return false;
+  //     else if (curr.next === head.next) return true;
+  //     else if (curr.next === stopGate) break;
+  //     curr = curr.next;
+  //   }
+  //   head = head.next;
+  // }
 }
+
+var node1 = new Node('1');
+var node2 = node1.next = new Node('2');
+var node3 = node2.next = new Node('3');
+var node4 = node3.next = new Node('4');
+var node5 = node4.next = new Node('5');
+console.log(hasCycle(node1)); // => false
+node5.next = node2;
+console.log(hasCycle(node1)); // => true
+
+// console.log(hasCycle()) 
 
 module.exports = {Node: Node, hasCycle: hasCycle}
