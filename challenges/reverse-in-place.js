@@ -13,8 +13,19 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
-
-}
+function reverseInPlace(array, n = -1) {  
+    if (n === array.length) {
+      return array;
+    }
+    n++;
+    let current = array.pop()
+    array.splice(n, 0, current)
+    return reverseInPlace(array, n)
+  }
 
 module.exports = reverseInPlace;
+
+
+a, b, c, d, e, f
+
+f, e, d, c, b, a
