@@ -22,6 +22,6 @@ function stringRotation(s1, s2) {
   }
   return false;
 }
-console.log(stringRotation("hello", "olleh"));
+console.log(stringRotation('hahaha', 'hahahe'));
 
 module.exports = { isSubstring, stringRotation };
