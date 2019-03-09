@@ -18,10 +18,11 @@ function isSubstring(s1, s2) {
 
 function stringRotation(s1, s2) {
   let cand = s2
-  for (let i = 0; i < s2.length; i++){
-    if (isSubstring(s1,cand)) return true
-    cand =  s2.slice(i) + s2.slice(0,i)
+  if (s1.length !== s2.length) return false
+  for (let i = 1; i < s2.length; i++){
+    cand += s2.slice(i) + s2.slice(0,i)
   }
+  if (isSubstring(cand,s1)) return true
   return false
 }
 
