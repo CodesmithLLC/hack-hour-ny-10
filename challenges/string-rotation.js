@@ -35,10 +35,10 @@ function stringRotation(s1, s2) {
   }
   return false;
 }
-console.log(stringRotation('hello','hello'));
-console.log(stringRotation('hello','llohe'));
-console.log(stringRotation('hello','elloh'));
-console.log(stringRotation('hello','ollhe'));
-console.log(stringRotation('he','eh'));
+// console.log(stringRotation('hello','hello'));
+// console.log(stringRotation('hello','llohe'));
+// console.log(stringRotation('hello','elloh'));
+// console.log(stringRotation('hello','ollhe'));
+// console.log(stringRotation('he','eh'));
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
