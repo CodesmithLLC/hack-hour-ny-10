@@ -34,19 +34,18 @@ function balancedParens(input){
   let brackCount = 0;
   let curlCount = 0;
   let map = {
-    '(':function(){parenCount++},
-    ')':function(){parenCount--},
-    '[':function(){brackCount++},
-    ']':function(){brackCount--},
-    '{':function(){curlCount++},
-    '}':function(){curlCount--}
+    '(':() => parenCount++,
+    ')':() => parenCount--,
+    '[':() => brackCount++,
+    ']':() => brackCount--,
+    '{':() => curlCount++,
+    '}':() => curlCount--
   }
 
   for (let char of input){
     if (parenCount < 0 || brackCount < 0 || curlCount < 0) return false
     if (map[char]) map[char]()
   }
-
   if (parenCount !== 0 || brackCount !== 0 || curlCount !== 0) return false
   return true;
 }
