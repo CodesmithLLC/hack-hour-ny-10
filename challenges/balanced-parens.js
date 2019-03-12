@@ -24,7 +24,28 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(str){
+    const openChars = {
+        '{': {count: 0 ,closing:'}' },
+         '(': {count:0 ,closing:')'},
+         '[': {count:0 ,closing:']'},
+       } 
+    const closedChars = new Set([')','}',']']);
+    const stack = []; 
+
+    let nextClosingExpected = '' ;  
+    for (let i = 0; i < str.length; i += 1) {        
+     if(str[i] in openChars) {
+       stack.push(str[i])
+       nextClosingExpected = openChars[str[i]].closing;
+     }  else if(closedChars.has(str[i])){
+         if(nextClosingExpected !== str[i] ) return false; 
+         // if valid close 
+         stack.pop()
+         nextClosingExpected = stack.length === 0 ? '' : openChars[stack[stack.length-1]].closing
+      } 
+    }
+    return stack.length === 0; 
 
 }
 
