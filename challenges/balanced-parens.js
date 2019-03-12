@@ -25,7 +25,10 @@
  */
 
 function balancedParens(input){
-
+  input.split(' ');
+  console.log(input)
 }
 
+
+balancedParens("(Fred Flinstone)")
 module.exports = balancedParens;
