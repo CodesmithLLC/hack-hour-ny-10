@@ -16,33 +16,36 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  let firstCharOfString1 = 0;
-  let reorderedString2 = [];
-  if(s1.length !== s2.length) return false;
+  let stringToCheck = s1.concat(s1) // or s1 + s1
+  return (s1.length === s2.length) && isSubstring(stringToCheck, s2);
+
+  // let firstCharOfString1 = 0;
+  // let reorderedString2 = [];
+  // if(s1.length !== s2.length) return false;
   
-  for(var i = 0; i < s2.length; i++){
-    console.log(s1[0],s2[i]);
-    if(s2[i] === s1[0]) {
-      firstCharOfString1 = i;
-      break;
-    }
-  }
+  // for(var i = 0; i < s2.length; i++){
+  //   console.log(s1[0],s2[i]);
+  //   if(s2[i] === s1[0]) {
+  //     firstCharOfString1 = i;
+  //     break;
+  //   }
+  // }
  
-  for(var j = firstCharOfString1; j < s2.length; j++){
-    reorderedString2.push(s2[j]);
-  }
+  // for(var j = firstCharOfString1; j < s2.length; j++){
+  //   reorderedString2.push(s2[j]);
+  // }
   
-  for(var k = 0; k < firstCharOfString1; k++){
-    reorderedString2.push(s2[k]);
-  }
+  // for(var k = 0; k < firstCharOfString1; k++){
+  //   reorderedString2.push(s2[k]);
+  // }
   
-  // console.log(reorderedString2.join(''));
-  if(s1 === reorderedString2.join('')) {
-    return true;
-  }
+  // // console.log(reorderedString2.join(''));
+  // if(s1 === reorderedString2.join('')) {
+  //   return true;
+  // }
   
-  return isSubstring(s1,reorderedString2.join(''));
-  // return false;
+  // return isSubstring(s1,reorderedString2.join(''));
+  // // return false;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
