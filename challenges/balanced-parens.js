@@ -30,8 +30,8 @@ function balancedParens(input) {
     '(': ')',
     '[': ']'
   }
-  const OPEN = Object.keys(parens);
-  const CLOSE = Object.values(parens);
+  const OPEN = ['{', '[', '('];
+  const CLOSE = ['}', ')', ']']
 
   let stack = [];
 
