@@ -25,7 +25,21 @@
  */
 
 function balancedParens(input){
-
+    const matches = {'}':'{', ')':'(', ']':'['}
+    return input.split('').reduce((acc, curr) => {
+        if (curr === '(' || curr === '[' || curr === '{'){
+            acc.push(curr);
+        } else if (acc[acc.length - 1] === matches[curr]){
+            acc.pop();
+        }
+        return acc;
+    }, []).length === 0;
 }
 
+// console.log(balancedParens('[](){}')); // true
+// console.log(balancedParens('[(]{)}')); // false
+// console.log(balancedParens('[({})]'));   // true
+// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+// console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 module.exports = balancedParens;
+
