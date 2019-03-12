@@ -22,9 +22,13 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  return (s1.length === s2.length) 
+  && isSubstring(s1 + s1, s2);
 }
 
+// console.log(stringRotation('hello', 'hello'))
+// console.log(stringRotation('hello', 'llohe'))
+// console.log(stringRotation('hello', 'heoll'))
 // console.log(isSubstring('hello', 'he'))
 // console.log(isSubstring('hello', 'llo'))
 
