@@ -41,7 +41,7 @@ function romanNumeral(n, place = null) {
       if (n === 4) return "XL";
       if (n === 9) return "XC";
       if (n < 5) return "X".repeat(n);
-      if (n >= 5) return "X" + "L".repeat(n - 5);
+      if (n >= 5) return "L" + "X".repeat(n - 5);
       break;
     case 2:
       if (n === 4) return "CD";
