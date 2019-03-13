@@ -22,11 +22,11 @@ function romanNumeral(n, place = null) {
   if (place === null) {
     let numString = n + "";
     let output = "";
-    let i = 0;
+    let i = numString.length - 1;
     for (let digit of numString) {
       let numnum = parseInt(digit);
-      output += romanNumeral(numnum, numString.length - i - 1); //append the largest digit's numeral to the end
-      i++;
+      output += romanNumeral(numnum, i); //append the largest digit's numeral to the end
+      i--;
     }
     return output;
   }
