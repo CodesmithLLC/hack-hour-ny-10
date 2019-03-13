@@ -50,6 +50,6 @@ function balancedParens(input) {
   return true;
 }
 
-let test = 'bad test'
+let test = "bad test";
 
 module.exports = balancedParens;
