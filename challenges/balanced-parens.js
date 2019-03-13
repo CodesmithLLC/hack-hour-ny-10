@@ -24,7 +24,7 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
   //initialize two counts, one for parens, one for brackets
   //every '(' adds to parensCount, every ')' subtracts
   //if either count is ever negative, return false
@@ -34,20 +34,22 @@ function balancedParens(input){
   let brackCount = 0;
   let curlCount = 0;
   let map = {
-    '(':() => parenCount++,
-    ')':() => parenCount--,
-    '[':() => brackCount++,
-    ']':() => brackCount--,
-    '{':() => curlCount++,
-    '}':() => curlCount--,
-  }
+    "(": () => parenCount++,
+    ")": () => parenCount--,
+    "[": () => brackCount++,
+    "]": () => brackCount--,
+    "{": () => curlCount++,
+    "}": () => curlCount--
+  };
 
-  for (let char of input){
-    if (parenCount < 0 || brackCount < 0 || curlCount < 0) return false
-    if (map[char]) map[char]()
+  for (let char of input) {
+    if (parenCount < 0 || brackCount < 0 || curlCount < 0) return false;
+    if (map[char]) map[char]();
   }
-  if (parenCount !== 0 || brackCount !== 0 || curlCount !== 0) return false
+  if (parenCount !== 0 || brackCount !== 0 || curlCount !== 0) return false;
   return true;
 }
+
+let test = "bad test";
 
 module.exports = balancedParens;
