@@ -34,7 +34,7 @@ function balancedParens(input){
 
   for (let i = 0; i < input.length; i += 1) {
     const currentChar = input[i];
-    if (Object.keys(match).includes(currentChar)) {
+    if (currentChar === '{' || currentChar === '(' || currentChar === '{') {
       stack.push(currentChar);
     } else if(match[stack[stack.length - 1]] === currentChar) {
       stack.pop();
@@ -54,5 +54,7 @@ function balancedParens(input){
 
 // console.log('expect true:', balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
 // console.log('expect false:', balancedParens(' var hubble = function() { telescopes.awesome();')); // false
+
+console.log(balancedParens(' ( 1 0 0 ) 0 0 0 ( 1 0 0 ( 2 0 0 ) 1 0 0 ) 0 0 0 ) -1 0 0 ( 1 0 0 [ 0 1 0 ] 0 0 0 ( 1 0 0 ) 0 0 0 { 0 0 1 } 0 0 0 [ 0 1 0 ( 1 1 0 { 1 1 1 } 1 1 0 ) 0 1 0 ] 0 0 0 [ 0 1 0 ( 1 1 0 ] 1 0 0 { 1 0 1 ) 0 0 1 } 0 0 0 0 0 0 v 0 0 0 a 0 0 0 r 0 0 0 0 0 0 w 0 0 0 o 0 0 0 w 0 0 0 0 0 0 0 0 0 = 0 0 0 0 0 0 { 0 0 1 0 0 1 y 0 0 1 o 0 0 1 : 0 0 1 0 0 1 t 0 0 1 h 0 0 1 i 0 0 1 s 0 0 1 I 0 0 1 s 0 0 1 A 0 0 1 w 0 0 1 e 0 0 1 s 0 0 1 o 0 0 1 m 0 0 1 e 0 0 1 ( 1 0 1 ) 0 0 1 0 0 1 } 0 0 0 0 0 0 v 0 0 0 a 0 0 0 r 0 0 0 0 0 0 h 0 0 0 u 0 0 0 b 0 0 0 b 0 0 0 l 0 0 0 e 0 0 0 0 0 0 = 0 0 0 0 0 0 f 0 0 0 u 0 0 0 n 0 0 0 c 0 0 0 t 0 0 0 i 0 0 0 o 0 0 0 n 0 0 0 ( 1 0 0 ) 0 0 0 0 0 0 { 0 0 1 0 0 1 t 0 0 1 e 0 0 1 l 0 0 1 e 0 0 1 s 0 0 1 c 0 0 1 o 0 0 1 p 0 0 1 e 0 0 1 s 0 0 1 . 0 0 1 a 0 0 1 w 0 0 1 e 0 0 1 s 0 0 1 o 0 0 1 m 0 0 1 e 0 0 1 ( 1 0 1 ) 0 0 1 ; 0 0 1 '))
 
 module.exports = balancedParens;

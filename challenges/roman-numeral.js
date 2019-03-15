@@ -99,5 +99,6 @@ function romanNumeralNaive(n) {
 console.log(romanNumeral(14));
 console.log(romanNumeral(350));
 console.log(romanNumeral(5321))
+console.log(romanNumeral(-1))
 
 module.exports = romanNumeral;
