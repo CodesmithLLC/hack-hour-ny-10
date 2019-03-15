@@ -36,6 +36,11 @@ function balancedParens(input){
     }, []).length === 0;
 }
 
+console.log(balancedParens(''));  // false
+// console.log(balancedParens('()')); // true
+// console.log(balancedParens(')('));  // false
+// console.log(balancedParens('(())'));  // true
+
 // console.log(balancedParens('[](){}')); // true
 // console.log(balancedParens('[(]{)}')); // false
 // console.log(balancedParens('[({})]'));   // true
