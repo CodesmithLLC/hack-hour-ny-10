@@ -10,6 +10,7 @@
 
 function subsetSum(array, target) {
   if (!array.length) return false;
+  if (array[0] === target) return true;
   let cache = {};
   for (let i = 0; i < array.length; i += 1) {
     if (array[i] in cache) {
@@ -18,7 +19,7 @@ function subsetSum(array, target) {
     let complement = target - array[i];
     cache[complement] = array[i];
   }
-  console.log(cache);
+  // console.log(cache);
   if (array.length === 1) {
     return false;
   } else {
