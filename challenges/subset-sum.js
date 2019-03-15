@@ -15,7 +15,7 @@ function subsetSum(array, target) {
   for (let i = 0; i < array.length; i++) {
     let cand = array[i];
     let diff = target - cand;
-    if (map[diff]) {
+    if (map[diff] || cand === target) {
       // console.log(map)
       return true;
     }
