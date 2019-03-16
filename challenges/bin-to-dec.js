@@ -14,7 +14,18 @@
  */
 
 function binToDec(binary) {
+    let counter = 0;
+    let decNum = 0;
+    //moving backwards in the binary string
+    for (let i = binary.length - 1; i >= 0; i--) {
+        //getting the index to start from 0 
 
+        console.log("char at i", parseInt(binary.charAt(i)))
+        decNum += (parseInt(binary.charAt(i)) * Math.pow(2, counter))
+        counter++
+    }
+    return decNum
 }
 
+console.log(binToDec('10'))
 module.exports = binToDec;
