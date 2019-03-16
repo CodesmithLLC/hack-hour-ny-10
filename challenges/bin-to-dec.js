@@ -14,7 +14,16 @@
  */
 
 function binToDec(binary) {
-
+    return binary.split("").reverse().reduce((accumulator, current, index) => {
+       return accumulator += parseInt(current) * Math.pow(2,index);
+    }, 0);
 }
+
+
+console.log(binToDec('0'))
+console.log(binToDec('11'))
+console.log(binToDec('100'))
+console.log(binToDec('101'))
+console.log(binToDec('0101'))
 
 module.exports = binToDec;
