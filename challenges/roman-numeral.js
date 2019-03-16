@@ -18,51 +18,30 @@
  */
 
 function romanNumeral(n) {
-  const stringifiedNum = n.toString();
-  const dict = {
-    1: "I",
-    5: "V",
-    10: "X",
-    50: "L",
-    100: "C",
-    500: "D",
-    1000: "M"
-  };
+  const map = [
+    [1000, "M"],
+    [900, "CM"],
+    [500, "D"],
+    [400, "CD"],
+    [100, "C"],
+    [90, "XC"],
+    [50, "L"],
+    [40, "XL"],
+    [10, "X"],
+    [9, "IX"],
+    [5, "V"],
+    [4, "IV"],
+    [1, "I"]
+  ];
 
-  const vals = [1, 5, 10, 50, 100, 500, 1000];
-  const reversevals = vals.reverse();
-
-  const result = "";
-
-  for (let i = 0; i < reversevals.length; i++) {
-    if ((n / vals).toFixed() >= 1) {
+  let value = "";
+  for (let i = 0; n > 0 && i < map.length; i++) {
+    while (n >= map[i][0]) {
+      value += map[i][1];
+      n -= map[i][0];
     }
   }
-  // const temp;
-  // reversevals.reduce((acc, val) => {
-  //   console.log("n / val to fixed", (n / val).toFixed(), "n", n, "val", val);
-
-  //   if ((n / val).toFixed() > 0) {
-  //     acc += dict[val];
-  //   }
-  //   return acc;
-  // }, result);
-
-  // if (stringifiedNum.length === 1 || n % 5 === 0) {
-  //   return dict[n];
-  // } else if (n % 4 === 0) {
-  // }
-
-  const split = [];
-
-  for (let i = 0; i < stringifiedNum.length; i++) {
-    if (stringifiedNum.length === 1) {
-      split.push(parseInt(stringifiedNum));
-    } else {
-      split.push(parseInt(stringifiedNum[i]) * (i * 10));
-    }
-  }
-  console.log(split);
+  return value;
 }
 
 console.log(romanNumeral(1)); // I
