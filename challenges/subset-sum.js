@@ -9,25 +9,15 @@
  */
 
 function subsetSum(array, target) {
-  let sumExists = false;
-  if (!array.length) {
-    return false;
-  }
-  const map = {};
-  array.reduce((acc, el) => {
-    if (acc[el]) {
-      sumExists = true;
-    } else {
-      acc[target - el] = el;
-    }
-    return acc;
-  }, map);
-
-  console.log(map);
-
-  // for (let key in map) {
-  //   console.log(map[key])
-  // }
+  // 1st base case: if target has been reduced to 0, return true (subset that adds up to sum has been found)
+  if (!target) return true;
+  // 2nd base case: if array is empty return false (depleted all elements in array without getting to sum)
+  if (!array.length) return false;
+  // Split recursion, either counting or not counting the first value
+  return (
+    subsetSum(array.slice(1), target - array[0]) ||
+    subsetSum(array.slice(1), target)
+  );
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5)); //  true, 3 + 2 = 5
