@@ -23,7 +23,6 @@ function binToDec(binary) {
     }
     return result;
 }
-// console.log(binToDec('0'))
 // console.log(binToDec('11'))
 // console.log(binToDec('100'))
 // console.log(binToDec('101'))
