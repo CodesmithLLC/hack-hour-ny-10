@@ -14,6 +14,15 @@
  */
 
 function binToDec(binary) {
+    let number = 0
+    for (let i=(binary.length-1), x=0; i>=0 && x<binary.length; i--, x++) {
+      if (parseInt(binary[i]) === 1) {
+        number+=(Math.pow(2, x))
+      }
+      console.log(parseInt(binary[i]))
+
+    }
+    return number;
 
 }
 
