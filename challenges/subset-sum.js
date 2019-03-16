@@ -9,16 +9,9 @@
  */
 
 function subsetSum(array, target) {
-    if(array.length === 1 && array[0] !== target) return false;
-    array.sort(function(a, b) { return a-b; });
-    const min = Math.min(recurse(array, target), recurse(array.slice(1), target))
-    if(min === 0) return true;
-    else return false;
+    if(!target) return true;
+    if(!array.length) return false;
+    return subsetSum(array.slice(1), target) || subsetSum(array.slice(1), target-array[0]);
 } 
-function recurse(arr, num) {
-    if(arr.length <= 0) return num;
-    if(num-arr[0] >= 0) num -= arr[0];
-    return Math.min(recurse(arr.slice(1), num), recurse(arr.slice(2), num)); 
-}
-//console.log(subsetSum([3], 3));
+
 module.exports = subsetSum;
