@@ -14,7 +14,19 @@
  */
 
 function binToDec(binary) {
-
+    binary = binary.split('').map(Number)
+    let count = 0;
+    let result = 0;
+    while(binary.length){
+        if (binary.pop() === 1) result += 2**count;
+        count++;
+    }
+    return result;
 }
+// console.log(binToDec('0'))
+// console.log(binToDec('11'))
+// console.log(binToDec('100'))
+// console.log(binToDec('101'))
+// console.log(binToDec('0101'))
 
 module.exports = binToDec;
