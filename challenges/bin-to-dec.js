@@ -15,6 +15,11 @@
 
 function binToDec(binary) {
 
+    return binary.split('')
+        .reduce( (decimal,currDigit,currIndex) => {
+             return decimal = ( (decimal*2) + parseInt(currDigit) )
+      },0)
+
 }
 
 module.exports = binToDec;
