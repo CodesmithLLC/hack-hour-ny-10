@@ -11,7 +11,30 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    if (!str)
+      return true
+    str = str.replace(/[\W\s_]+/g," ");
+    str = str.replace(/^[\s]+/,"");
+    str = str.replace(/[\s]+$/,"");
+    str = str.toLowerCase();
+    let words = str.split(" ");
+    let traverseArray = [];
+    for (let index = 0; index < words.length; index++){
+      if (!traverseArray.length || words[index].split("").reverse().join("") !== traverseArray[traverseArray.length-1])
+        traverseArray.push(words[index])
+      else {
+          traverseArray.pop();
+        }
+    }
+    if (traverseArray.length)
+        return false;
+    return true;
+    console.log(words)
 }
 
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+console.log(matchWord('__ENDDNE__'));
+console.log(matchWord('__END_DNE-----'));
+console.log(matchWord('IF()()fi[]'));
+console.log(matchWord('for__if__rof__fi'));
 module.exports = matchWord;
