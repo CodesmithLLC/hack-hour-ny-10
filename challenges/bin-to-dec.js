@@ -27,5 +27,28 @@ function binToDec(binary) {
 // console.log(binToDec('100'))
 // console.log(binToDec('101'))
 // console.log(binToDec('0101'))
+function decTobin(decimal, remainder = ""){
+    // integer parse
+    // if (decimal < 1) return remainder;
+    // else{
+    //     let temp = Math.floor(decimal / 2);
+    //     remainder = (decimal % 2) + remainder;
+    //     return decTobin(temp, remainder);
+    // }
 
+    // decimal parse
+    console.log(decimal)
+    if (decimal >= 1) return remainder;
+    else {
+        let temp = Math.floor(decimal * 2);
+        remainder = (decimal % 2) + remainder;
+        return decTobin(temp, remainder);
+    }
+}
+
+console.log(decTobin(.375));
+// console.log(decTobin(4));
+// console.log(decTobin(5));
+// console.log(decTobin(3));
+// console.log(decTobin(2));
 module.exports = binToDec;
