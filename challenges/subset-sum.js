@@ -41,4 +41,12 @@ function subsetSum(arr, target) {
     return false
 }
 
+// function subsetSum(array, target) {
+//   // 1st base case: if target has been reduced to 0, return true (subset that adds up to sum has been found)
+//   if (!target) return true;
+//   // 2nd base case: if array is empty return false (depleted all elements in array without getting to sum)
+//   if (!array.length) return false;    
+//   // Split recursion, either counting or not counting the first value
+//   return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
+// }
 module.exports = subsetSum;
