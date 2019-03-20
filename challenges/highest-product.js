@@ -5,9 +5,22 @@
 // [3, 4, 5, 9, 4, 7, 6]
 
 function highestProduct(array) {
-  const sorted = array.sort((a, b) => a - b);
-  const highestThree = sorted.slice(array.length - 3);
-  return highestThree[0] * highestThree[1] * highestThree[2];
+  if (array.length < 3) return 0;
+  if (array instanceof Array) {
+    const sorted = array.sort((a, b) => {
+      if (a > b) return 1;
+      if (a < b) return -1;
+      return a - b;
+    });
+    const highestThree = sorted.slice(array.length - 3);
+    return highestThree[0] * highestThree[1] * highestThree[2];
+  }
+  return 0;
 }
+
+highestProduct([3, 4]);
+highestProduct(3, 4, -5, 9, 4, 7, 6);
+highestProduct([3, 4, 5, -9, 4, 7, 6]);
+highestProduct([3, 4, 5, 9, 4, 7, 6]);
 
 module.exports = highestProduct;
