@@ -3,7 +3,7 @@
  */
 
 function highestProduct(array) {
-  if (array.length < 3 || !Array.isArray) return 0;
+  if (array.length < 3 || !Array.isArray(array)) return 0;
 
   //create empty array
   const productArr = [];
