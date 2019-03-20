@@ -14,8 +14,9 @@ function matchWord(str) {
     if (!str)
       return true
     str = str.replace(/[\W\s_]+/g," ");
-    str = str.replace(/^[\s]+/,"");
-    str = str.replace(/[\s]+$/,"");
+    str = str.replace(/^[\s]/,"");
+    str = str.replace(/[\s]$/,"");
+    console.log(str)
     str = str.toLowerCase();
     let words = str.split(" ");
     let traverseArray = [];
