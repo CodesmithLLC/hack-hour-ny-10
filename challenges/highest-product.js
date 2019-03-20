@@ -3,7 +3,7 @@
  */
 
 function highestProduct(array) {
-  if (array.length === 0) return undefined;
+  if (array.length === 0) return 0;
   let maxPosArr = [];
   let maxNegArr = [];
   let minNeg = -Infinity;
