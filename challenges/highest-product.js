@@ -17,10 +17,8 @@ function highestProduct(array) {
       numbers[0] = array[index];
     }
   }
-  console.log(numbers)
   return numbers[0] * numbers[1] * numbers[2];
 }
 
-console.log(highestProduct([-9,2,3,4,5,-1,2,-7,-8,]))
 
 module.exports = highestProduct;
