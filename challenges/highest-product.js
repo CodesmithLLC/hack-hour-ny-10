@@ -14,7 +14,7 @@ function highestProduct(array) {
       numbers[0] = numbers[1];
       numbers[1] = array[index];
     } else if (array[index] > numbers[0] && array[index] < numbers[1]) {
-      numbers[2] = array[index];
+      numbers[0] = array[index];
     }
   }
   console.log(numbers)
