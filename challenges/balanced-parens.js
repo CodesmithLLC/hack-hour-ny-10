@@ -25,40 +25,36 @@
  */
 
 function balancedParens(input) {
-  let openParens = 0;
-  let closeParens = 0;
-  let openCurly = 0;
-  let closeCurly = 0;
-  let openBracket = 0;
-  let closeBracket = 0;
-  for (let i = 0; i < input.length; i += 1) {
-    if (input[i] === '(') openParens += 1;
-    if (input[i] === ')') closeParens += 1;
-    if (input[i] === '{') openCurly += 1;
-    if (input[i] === '}') closeCurly += 1;
-    if (input[i] === '[') openBracket += 1;
-    if (input[i] === ']') closeBracket += 1;
+  // Create stack to keep track of parens
+  const stack = [];
+  const parens = {
+    "[": "]",
+    "(": ")",
+    "{": "}"
+  };
+  // Loop through characters in string
+  for (let i = 0; i < input.length; i++) {
+    const currentCharacter = input[i];
+    // If current character is an open bracket, push onto stack
+    if (parens[currentCharacter]) stack.push(currentCharacter);
+    // Else if current character is a close bracket...
+    else if (
+      currentCharacter === ")" ||
+      currentCharacter === "]" ||
+      currentCharacter === "}"
+    ) {
+      // if current character is not the corresponding closing paren to last paren on stack
+      // return false
+      if (parens[stack.pop()] !== currentCharacter) {
+        return false;
+      }
+    }
   }
-  return (
-    openParens === closeParens
-    && openCurly === closeCurly
-    && openBracket === closeBracket
-  );
+  // If stack is empty, return true. Else, return false.
+  return !stack.length;
 }
 
-// const balancedParens = () => {
-//     input = [...input];
-//     input.reduce((count, current) => {
-//         return ((current === '(' && count += 1 ||
-//         current === ')' && count -= 1)) &&
-//         ((current === '{' && count += 1 ||
-//         current === '}' && count -= 1)) &&
-//         ((current === '[' && count += 1 ||
-//         current === ']' && count -= 1))
-//         return count;
-//     }, 0)}
-
-console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
-console.log(balancedParens(' var hubble = function() { telescopes.awesome();'));
+console.log(balancedParens(" var wow  = { yo: thisIsAwesome() }"));
+console.log(balancedParens(" var hubble = function() { telescopes.awesome();"));
 
 module.exports = balancedParens;
