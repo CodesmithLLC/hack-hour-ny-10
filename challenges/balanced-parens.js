@@ -24,38 +24,68 @@
  *
  */
 
+// function balancedParens(input) {
+//   const closedParensRegex = /\}|\)|\]/;
+//   const openParensRegex = /\{|\(|\[/;
+
+//   if (input.length % 2 === 1) return false;
+
+//   if (
+//     closedParensRegex.test(input[0]) ||
+//     openParensRegex.test(input[input.length - 1])
+//   ) {
+//     return false;
+//   }
+
+//   const parensCount = input.split("").reduce((acc, el) => {
+//     if (closedParensRegex.test(el) || openParensRegex.test(el)) {
+//       if (!acc[el]) {
+//         acc[el] = 0;
+//       }
+//       acc[el] += 1;
+//       return acc;
+//     }
+//   }, {});
+
+//   if (
+//     parensCount[")"] === parensCount["("] &&
+//     parensCount["}"] === parensCount["{"] &&
+//     parensCount["["] === parensCount["]"]
+//   )
+//     return true;
+//   else {
+//     return false;
+//   }
+// }
+
 function balancedParens(input) {
-  const closedParensRegex = /\}|\)|\]/;
-  const openParensRegex = /\{|\(|\[/;
-
-  if (input.length % 2 === 1) return false;
-
-  if (
-    closedParensRegex.test(input[0]) ||
-    openParensRegex.test(input[input.length - 1])
-  ) {
-    return false;
-  }
-
-  const parensCount = input.split("").reduce((acc, el) => {
-    if (closedParensRegex.test(el) || openParensRegex.test(el)) {
-      if (!acc[el]) {
-        acc[el] = 0;
+  // Create stack to keep track of parens
+  let stack = [];
+  let parens = {
+    "[": "]",
+    "(": ")",
+    "{": "}"
+  };
+  // Loop through characters in string
+  for (let i = 0; i < input.length; i++) {
+    let currentCharacter = input[i];
+    // If current character is an open bracket, push onto stack
+    if (parens[currentCharacter]) stack.push(currentCharacter);
+    // Else if current character is a close bracket...
+    else if (
+      currentCharacter === ")" ||
+      currentCharacter === "]" ||
+      currentCharacter === "}"
+    ) {
+      // if current character is not the corresponding closing paren to last paren on stack
+      // return false
+      if (parens[stack.pop()] !== currentCharacter) {
+        return false;
       }
-      acc[el] += 1;
-      return acc;
     }
-  }, {});
-
-  if (
-    parensCount[")"] === parensCount["("] &&
-    parensCount["}"] === parensCount["{"] &&
-    parensCount["["] === parensCount["]"]
-  )
-    return true;
-  else {
-    return false;
   }
+  // If stack is empty, return true. Else, return false.
+  return !stack.length;
 }
 
 console.log(balancedParens("(")); // false
