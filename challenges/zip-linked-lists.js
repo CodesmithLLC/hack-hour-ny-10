@@ -12,6 +12,9 @@ function Node(val) {
 
 function zip(l1, l2) {
 
+  if(!l1) return l2;
+  if(!l2) return l1;
+
   //create new linked list and list pointer
   let l3 = new Node(null, null);
   let prev = l3;
