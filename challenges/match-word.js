@@ -24,20 +24,20 @@ function matchWord(str) {
     const currentChar = str[i];
     if (currentChar.match(/[A-Za-z]/)) currentWord += currentChar;
     
-    if (currentChar.match(/[\s | _]/) || i === str.length - 1) {
+    if (currentChar.match(/[\s_{[(]/) || i === str.length - 1) {
       if (currentWord !== '') isReversed(stack[stack.length - 1], currentWord) ? stack.pop() : stack.push(currentWord);
       currentWord = '';
     }
     
-    if (currentChar.match(/[[({}]/)) {
-      if (currentWord !== '') isReversed(stack[stack.length - 1], currentWord) ? stack.pop() : stack.push(currentWord);
-      currentWord = '';
-      stack.push(currentChar)
-    }
+    // if (currentChar.match(/[[({}]/)) {
+    //   if (currentWord !== '') isReversed(stack[stack.length - 1], currentWord) ? stack.pop() : stack.push(currentWord);
+    //   currentWord = '';
+    //   stack.push(currentChar)
+    // }
     
-    if (currentChar.match(/[}\])]/) && stack[stack.length - 1] === brackets[currentChar]) {
-      stack.pop();
-    }
+    // if (currentChar.match(/[}\])]/) && stack[stack.length - 1] === brackets[currentChar]) {
+    //   stack.pop();
+    // }
   }
   return stack.length === 0
 }
@@ -47,12 +47,12 @@ function isReversed(original, testWord) {
   return original === reversed;
 }
 
-// console.log(matchWord('__END_DNE__')); //true
-// console.log(matchWord('__ENDDNE__')); //false
-// console.log(matchWord('for__if__rof__fi')); //false
-// console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw')); // true
-// console.log(matchWord('')); //true
-// console.log(matchWord('IF()()fi[]')) // true
+console.log(matchWord('__END_DNE__')); //true
+console.log(matchWord('__ENDDNE__')); //false
+console.log(matchWord('for__if__rof__fi')); //false
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw')); // true
+console.log(matchWord('')); //true
+console.log(matchWord('IF()()fi[]')) // true
 
 
 module.exports = matchWord;
