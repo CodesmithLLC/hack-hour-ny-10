@@ -11,6 +11,10 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (!l1 && l2) return l2;
+  if (l1 && !l2) return l1;
+  if (!l1 && !l2) return null;
+
   const queue = [l1, l2];
   let l1P = l1;
   let l2P = l2;
@@ -28,6 +32,8 @@ function zip(l1, l2) {
     newP.next = queue.shift();
     newP = newP.next;
   }
+
+  return l1;
 };
 
 // const list1 = new Node(1);
@@ -42,7 +48,7 @@ function zip(l1, l2) {
 // list2.next.next.next = new Node(7);
 // list2.next.next.next.next = new Node(8);
 
-// zip(list1, list2);
+// console.log(zip(list1, list2));
 
 // let test = list1;
 // while (test) {
