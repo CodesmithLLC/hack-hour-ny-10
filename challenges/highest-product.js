@@ -3,17 +3,15 @@
  */
 
 function highestProduct(array) {
-  if (array.length < 3) return 0;
-  if (array instanceof Array) {
-    const sorted = array.sort((a, b) => {
-      if (a > b) return 1;
-      if (a < b) return -1;
-      return a - b;
-    });
-    const highestThree = sorted.slice(array.length - 3);
-    return highestThree[0] * highestThree[1] * highestThree[2];
-  }
-  return 0;
+  if (!(array instanceof Array) || array.length < 3) return 0;
+  const sortedArray = array
+    .sort((a, b) => {
+      if (a < b) return 1;
+      if (a > b) return -1;
+      return 0;
+    })
+    .slice(0, 3);
+  return sortedArray.reduce((acc, curr) => acc * curr, 1);
 }
 
 module.exports = highestProduct;

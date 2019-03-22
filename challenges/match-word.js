@@ -10,32 +10,57 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+// Verbose but more efficient
 function matchWord(str) {
-  let splitString = str.split(/[^A-Za-z0-9]+/g);
-  splitString = splitString.filter(char => /\S/.test(char));
-  //   console.log(splitString);
-  const firstHalf = splitString.slice(0, splitString.length / 2);
-  //   console.log(firstHalf);
-  const secondHalf = splitString.slice(splitString.length / 2);
-  //   console.log(secondHalf);
-  const tempArray = [];
-
-  for (let i = 0; i < secondHalf.length; i += 1) {
-    tempArray.push(
-      secondHalf[i]
-        .split('')
-        .reverse()
-        .join(''),
-    );
+  let current = 0;
+  const stack = [];
+  // Main loop moving forward in string
+  while (current < str.length) {
+    // While current is not a letter, increment current pointer
+    while (str[current] && !str[current].match(/[A-Z|a-z]/i)) {
+      current++;
+    }
+    let currentWord = '';
+    let currentWordReverse = '';    
+    // While current character in string is a letter...
+    // ... add to currentWord and currentWordReverse while incrementing current
+    while (str[current] && str[current].match(/[A-Z|a-z]/i)) {
+      currentWord += str[current].toLowerCase();
+      currentWordReverse = str[current].toLowerCase() + currentWordReverse;
+      current++;
+    }
+    // if current word equal to previous word's reverse, pop off previous word from stack
+    if (stack.length && currentWord === stack[stack.length-1].reverseWord) {
+      stack.pop()
+    }
+    // else if currentWord exists, push object with current word and its reverse on to the stack
+    else if (currentWord) {
+      stack.push({word: currentWord, reverseWord: currentWordReverse});
+    }
   }
-  //   const reverse = secondHalf.join('').split('');
-  //   .reverse();
-  // .join('');
-  console.log(tempArray);
-
-  //   for (let i = 0; i < splitString.length; i += 1) {}
-
-  return splitString;
+  // If stack is empty, return true, else return false
+  return stack.length === 0 ? true : false;
 }
-matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');
+​
+// Less efficient but more concise
+function matchWord(str) {
+  const stack = []
+  // String.prototype.match returns an array of strings matched against regex
+  const wordArray = str.match(/[a-zA-Z]+/g) || [];
+  for (let currentWord of wordArray) {
+    let word = currentWord.toLowerCase();
+    let reverseWord = word.split('').reverse().join('');
+    // if current word equal to previous word's reverse, pop off previous word from stack
+    if (stack.length && word === stack[stack.length-1].reverseWord) {
+      stack.pop()
+    }
+    // else push object with current word and its reverse on to the stack
+    else {
+      stack.push({word, reverseWord});
+    }
+  }
+  // If stack is empty, return true, else return false
+	return stack.length === 0 ? true : false;
+}
+
 module.exports = matchWord;
