@@ -8,6 +8,21 @@
 
 function Stack() {
   // body...
+  this.stack = [];
+
+  function push(val) {
+    const stackPush = this.stack.push(val);
+    return stackPush;
+  }
+
+  function pop(val) {
+    const stackPop = this.stack.pop();
+    return stackPop;
+  }
+
+  function getMax() {
+    return Math.max([...this.stack]);
+  }
 }
 
 module.exports = Stack;
