@@ -36,24 +36,24 @@ function zip(l1, l2) {
   return l1;
 };
 
-// const list1 = new Node(1);
-// list1.next = new Node(3);
-// list1.next.next = new Node(5);
-// list1.next.next.next = new Node(7);
-// list1.next.next.next.next = new Node(8);
+const list1 = new Node(1);
+list1.next = new Node(3);
+list1.next.next = new Node(5);
+list1.next.next.next = new Node(7);
+list1.next.next.next.next = new Node(8);
 
-// const list2 = new Node(2);
-// list2.next = new Node(4);
-// list2.next.next = new Node(6);
-// list2.next.next.next = new Node(7);
-// list2.next.next.next.next = new Node(8);
+const list2 = new Node(2);
+list2.next = new Node(4);
+list2.next.next = new Node(6);
+list2.next.next.next = new Node(7);
+list2.next.next.next.next = new Node(8);
 
-// console.log(zip(list1, list2));
+console.log(zip(list1, list2));
 
-// let test = list1;
-// while (test) {
-//   console.log(test.value);
-//   test = test.next;
-// }
+let test = list1;
+while (test) {
+  console.log(test.value);
+  test = test.next;
+}
 
 module.exports = {Node: Node, zip: zip};
