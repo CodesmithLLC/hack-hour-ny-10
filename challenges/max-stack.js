@@ -36,9 +36,9 @@ Stack.prototype.pop = function() {
   } else if (this.length > 0 && this.max.count === 0) {
     const newMax = {value: this.stack[0], count: 1};
     for (let i = 1; i < this.length; i += 1) {
-      if (this.stack[i] > this.newMax.value) {
+      if (this.stack[i] > newMax.value) {
         newMax = {value: this.stack[i], count: 1};
-      } else if (this.stack[i] === this.newMax.value) {
+      } else if (this.stack[i] === newMax.value) {
         newMax.count++;
       }
     }
