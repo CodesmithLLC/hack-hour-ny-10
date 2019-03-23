@@ -11,9 +11,9 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if ((l2 === null && l1 !== null) || l2 === undefined) return l1;
-  else if ((l1 === null && l2 !== null) || l1 === undefined) return l2;
-  else if (l1 === null && l2 === null) return;
+  if (!l2) return l1;
+  if (!l1) return l2;
+  
   let tempList = l1.next
   l1.next = l2;
   l2.next = zip(tempList, l2.next)  
