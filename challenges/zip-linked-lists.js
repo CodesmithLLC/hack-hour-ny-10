@@ -11,6 +11,28 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (!l1) return l2;
+
+  let pointer1 = l2;
+  let pointer2 = l2;
+  let pointer3 = l1;
+
+  while (pointer1 !== null) {
+    pointer1 = pointer3.next;
+    pointer3.next = pointer2;
+    pointer3 = pointer3.next;
+    pointer2 = pointer1;
+  }
+
+  return l1;
+}
+
+function Node(val) {
+  this.value = val;
+  this.next = null;
+}
+
+function zip(l1, l2) {
   if (l1 == null) return l2;
   if (l2 == null) return l1;
 
