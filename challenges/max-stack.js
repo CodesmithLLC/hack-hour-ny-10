@@ -8,13 +8,13 @@
 
 function Stack() {
 	this.stack = {};
-	this.maxArray = [Number.MIN_SAFE_INTEGER];
+	this.maxArray = [undefined];
 	this.max = this.maxArray[0];
 	this.length = 0;
 
 	this.push = function(val) {
 		this.stack[this.length++] = val;
-		if(val > this.max) {
+		if(val >= this.max) {
 			this.max = val;
 			this.maxArray.push(val);
 		}
@@ -30,9 +30,7 @@ function Stack() {
 		}
 		return val;
 	}
-	this.getMax = function() {
-		return this.max;
-	}
+	this.getMax = function() { return this.max; }
 }
 // const stk = new Stack();
 // stk.push(5);
