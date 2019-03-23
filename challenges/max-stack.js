@@ -8,13 +8,13 @@
 
 function Stack() {
 	this.stack = {};
-	this.maxArray = [undefined];
-	this.max = this.maxArray[0];
+	this.maxArray = [Number.MIN_SAFE_INTEGER];
+	this.max = undefined;
 	this.length = 0;
 
 	this.push = function(val) {
 		this.stack[this.length++] = val;
-		if(val >= this.max) {
+		if(val >= this.maxArray[this.maxArray.length-1]) {
 			this.max = val;
 			this.maxArray.push(val);
 		}
@@ -26,21 +26,25 @@ function Stack() {
 		delete this.stack[this.length];
 		if(this.maxArray[this.maxArray.length-1] === val) {
 			this.maxArray.pop();
-			this.max = this.maxArray[this.maxArray.length-1];
+			this.max = (this.maxArray.length === 1) ? undefined : this.maxArray[this.maxArray.length-1];
 		}
 		return val;
 	}
 	this.getMax = function() { return this.max; }
 }
-// const stk = new Stack();
-// stk.push(5);
-// stk.push(10);
-// console.log(stk.max);
-// console.log(stk.stack);
-// stk.pop();
-// console.log(stk.max);
-// stk.pop();
-// console.log(stk.max);
-// console.log(stk.stack);
+const stk = new Stack();
+stk.push(5);
+stk.push(10);
+console.log(stk.max);
+stk.push(10);
+console.log(stk.getMax());
+console.log(stk.stack);
+stk.pop();
+console.log(stk.max);
+stk.pop();
+console.log(stk.max);
+console.log(stk.stack);
+stk.pop();
+console.log(stk.max);
 
 module.exports = Stack;
