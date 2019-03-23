@@ -45,4 +45,4 @@ function zip(l1, l2) {
 // l1.next.next = new Node(3);
 // console.log(zip(l1, l1));
 
-// module.exports = {Node: Node, zip: zip};
+module.exports = {Node: Node, zip: zip};
