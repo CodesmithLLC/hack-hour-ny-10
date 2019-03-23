@@ -41,7 +41,8 @@ class Stack {
   }
 
   getMax() {
-    return this.maxVal;
+    if (this.index === 0) return undefined;
+    else return this.maxVal;
   }
 }
 
