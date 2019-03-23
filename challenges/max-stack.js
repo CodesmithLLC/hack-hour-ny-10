@@ -28,8 +28,13 @@ class Stack {
 
     if (toDelete === this.maxVal) {
       // find the new maxVal
-      const values = Object.values(this.stack);
-      this.maxVal = Math.max(...values);
+      for (let key in this.stack) {
+        if (this.stack[key] > this.maxVal) {
+          this.maxVal = this.stack[key];
+        }
+      }
+      // const values = Object.values(this.stack);
+      // this.maxVal = Math.max(...values);
     }
 
     return toDelete;
@@ -39,12 +44,5 @@ class Stack {
     return this.maxVal;
   }
 }
-
-const stack = new Stack();
-console.log(stack.push(1));
-console.log(stack.push(2));
-console.log(stack.push(3));
-console.log(stack.pop());
-console.log(stack);
 
 module.exports = Stack;
