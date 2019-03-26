@@ -32,19 +32,19 @@ function Stack() {
 	}
 	this.getMax = function() { return this.max; }
 }
-const stk = new Stack();
-stk.push(5);
-stk.push(10);
-console.log(stk.max);
-stk.push(10);
-console.log(stk.getMax());
-console.log(stk.stack);
-stk.pop();
-console.log(stk.max);
-stk.pop();
-console.log(stk.max);
-console.log(stk.stack);
-stk.pop();
-console.log(stk.max);
+// const stk = new Stack();
+// stk.push(5);
+// stk.push(10);
+// console.log(stk.max);
+// stk.push(10);
+// console.log(stk.getMax());
+// console.log(stk.stack);
+// stk.pop();
+// console.log(stk.max);
+// stk.pop();
+// console.log(stk.max);
+// console.log(stk.stack);
+// stk.pop();
+// console.log(stk.max);
 
 module.exports = Stack;
