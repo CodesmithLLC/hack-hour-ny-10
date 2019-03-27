@@ -14,7 +14,34 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    if (!head || !head.next) {
+        return head;
+    }
 
+    let current_head = head.next;
+    let reversed_head = head;
+    reversed_head.next = null;
+
+    while (current_head) {
+        let temp = current_head;
+        current_head = current_head.next;
+
+        temp.next = reversed_head;
+        reversed_head = temp;
+    }
+
+    return reversed_head;
 }
+
+// let pointer1 = head;
+// let pointer2 = head.next;
+// head.next = null;
+// while (pointer2) {
+//     head = pointer2;
+//     pointer2 = head.next;
+//     head.next = pointer1;
+//     pointer1 = head;
+// }
+// return head;
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
