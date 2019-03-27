@@ -22,7 +22,6 @@ function bestProfit(stock_prices_yesterday) {
 		else buy = stock_prices_yesterday[i];
 	} return profit;
 }
-
-console.log(bestProfit([6,4,7,9,2,7,9,4]));
+// console.log(bestProfit([6,4,7,9,2,7,9,4]));
 
 module.exports = bestProfit;
