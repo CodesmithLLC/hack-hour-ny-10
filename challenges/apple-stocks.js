@@ -13,7 +13,16 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+	if(stock_prices_yesterday.length < 2) return 0;
+	let buy = stock_prices_yesterday[0];
+	let profit = 0;
+	for(let i = 1; i < stock_prices_yesterday.length; i++) {
+		const val = stock_prices_yesterday[i];
+		if(val >= buy) profit = Math.max(profit, (val - buy));
+		else buy = stock_prices_yesterday[i];
+	} return profit;
 }
+
+console.log(bestProfit([6,4,7,9,2,7,9,4]));
 
 module.exports = bestProfit;
