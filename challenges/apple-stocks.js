@@ -13,7 +13,7 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-	if(stock_prices_yesterday.length < 2 || !stock_prices_yesterday) return 0;
+	if(stock_prices_yesterday.length < 2 || !stock_prices_yesterday.length) return 0;
 	let buy = stock_prices_yesterday[0];
 	let profit = 0;
 	for(let i = 1; i < stock_prices_yesterday.length; i++) {
