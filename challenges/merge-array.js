@@ -14,7 +14,19 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+	const arr = [];
+	let i = 0; 
+	let j = 0;
+	while(i < arr1.length || j < arr2.length) {
+		if(arr2[j] !== undefined && arr1[i] > arr2[j]) arr.push(arr2[j++]);
+		else if(arr1[i] !== undefined && arr1[i] < arr2[j]) arr.push(arr1[i++]);
+		else {
+			if(arr1[i] !== undefined) arr.push(arr1[i++]);
+			if(arr2[j] !== undefined) arr.push(arr2[j++]);
+		}
+	}
+	return arr;
 }
+//console.log(mergeArrays([3,4,6,10,11,15,21],[1,5,14]));
 
 module.exports = mergeArrays;
