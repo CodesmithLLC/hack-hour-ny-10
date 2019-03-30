@@ -23,7 +23,7 @@ function permPalin(str) {
 		if(!status.data[str[i]]) status.data[str[i]] = 1;
 		else status.data[str[i]]++;
 	} status.getNums();
-	if(status.odd === 1) return true;
+	if(status.odd <= 1) return true;
 	else return false;
 }
 //console.log(permPalin('abcdadcbaaa'));
