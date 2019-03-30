@@ -60,11 +60,11 @@
 
 function balancedParens(input) {
   // Create stack to keep track of parens
-  let stack = [];
-  let parens = {
-    "[": "]",
-    "(": ")",
-    "{": "}"
+  const stack = [];
+  const parens = {
+    '[': ']',
+    '(': ')',
+    '{': '}'
   };
   // Loop through characters in string
   for (let i = 0; i < input.length; i++) {
@@ -73,9 +73,9 @@ function balancedParens(input) {
     if (parens[currentCharacter]) stack.push(currentCharacter);
     // Else if current character is a close bracket...
     else if (
-      currentCharacter === ")" ||
-      currentCharacter === "]" ||
-      currentCharacter === "}"
+      currentCharacter === ')' ||
+      currentCharacter === ']' ||
+      currentCharacter === '}'
     ) {
       // if current character is not the corresponding closing paren to last paren on stack
       // return false
@@ -88,14 +88,14 @@ function balancedParens(input) {
   return !stack.length;
 }
 
-console.log(balancedParens("(")); // false
-console.log(balancedParens("()")); // true
-console.log(balancedParens(")(")); // false
-console.log(balancedParens("(())")); // true
-console.log(balancedParens("[](){}")); // true
-console.log(balancedParens("[({})]")); // true
-console.log(balancedParens("[(]{)}")); // false
-console.log(balancedParens(" var wow  = { yo: thisIsAwesome() }")); // true
+console.log(balancedParens('(')); // false
+console.log(balancedParens('()')); // true
+console.log(balancedParens(')(')); // false
+console.log(balancedParens('(())')); // true
+console.log(balancedParens('[](){}')); // true
+console.log(balancedParens('[({})]')); // true
+console.log(balancedParens('[(]{)}')); // false
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
 module.exports = balancedParens;
 
 // function balancedParens(input) {
