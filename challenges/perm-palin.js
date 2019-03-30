@@ -11,6 +11,7 @@
 
 function permPalin(str) {
   let count = 0;
+  if (str.length <= 1) return true;
   const map = str.split('').reduce((acc, char) => {
     if (!acc[char]) {
       acc[char] = 0;
@@ -26,7 +27,7 @@ function permPalin(str) {
     return acc;
   }, {});
 
-  if (count === 0 || count % 2 === 1) {
+  if (count === 1 || count === 0) {
     return true;
   } else {
     return false;
@@ -37,5 +38,6 @@ function permPalin(str) {
 // console.log(permPalin('abab')); // true
 // console.log(permPalin('a')); // true
 // console.log(permPalin('cbabababa')); // true
+// console.log(permPalin('cbaaaaa')); // true
 
 module.exports = permPalin;
