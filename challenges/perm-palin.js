@@ -10,7 +10,12 @@
  */
 
 function permPalin(str) {
-	
+	let front = 0;
+	let end = str.length - 1;
+	while(front < end) {
+		if(str[front++] !== str[end--]) return false;
+	} return true;
 }
+//console.log(permPalin('abcdadcbaa'))
 
 module.exports = permPalin;
