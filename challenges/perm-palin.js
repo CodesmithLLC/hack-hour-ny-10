@@ -10,12 +10,22 @@
  */
 
 function permPalin(str) {
-	let front = 0;
-	let end = str.length - 1;
-	while(front < end) {
-		if(str[front++] !== str[end--]) return false;
-	} return true;
+	const status = { 
+		odd: 0,
+		getNums: function() {
+			for(const key in this.data) {
+				if(this.data[key]%2 !== 0) this.odd++;
+			}
+		},
+		data: {} 
+	}
+	for(let i = 0; i < str.length; i++) {
+		if(!status.data[str[i]]) status.data[str[i]] = 1;
+		else status.data[str[i]]++;
+	} status.getNums();
+	if(status.odd === 1) return true;
+	else return false;
 }
-//console.log(permPalin('abcdadcbaa'))
+//console.log(permPalin('abcdadcbaaa'));
 
 module.exports = permPalin;
