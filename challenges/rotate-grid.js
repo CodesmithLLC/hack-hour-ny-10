@@ -18,6 +18,25 @@
 
 function rotateGrid(grid, n) {
 
+  let innerArr = [];
+  let outerArr = [];
+
+  //select first element of each nested array up to n value
+  //push each element in reverse order to innerArr
+  //push innerArr to outerArr, repeat up to n
+  for(let m = 0; m < n; m++){   //first el in each nested arr
+    for(let i = n; i > 0; i--) {  //for pushing in reverse order to innerArr
+      innerArr.push(grid[i-1][m]);
+    }  
+    outerArr.push(innerArr) 
+    innerArr = []; 
+    //console.log(outerArr)
+  }
+
+  return outerArr;
 }
 
+// console.log([[1,2,3],[4,5,6],[7,8,9]])
+console.log(rotateGrid([[1,2,3],[4,5,6],[7,8,9]], 3))
+console.log(rotateGrid([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12], [13, 14, 15, 16]],4));
 module.exports = rotateGrid;
