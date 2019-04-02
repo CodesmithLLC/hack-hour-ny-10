@@ -20,7 +20,7 @@ Stack.prototype.pop = function (value) {
     this.size -= 1;
     return temp
   } else {
-    return false
+    return undefined
   }
 }
 
@@ -58,7 +58,7 @@ Queue.prototype.dequeue = function () {
 
 Queue.prototype.empty = function () {
   if (this.stack1.size === 0) return true;
-  return false
+  return undefined
 }
 
 Queue.prototype.size = function () {
