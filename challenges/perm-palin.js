@@ -27,7 +27,7 @@ function permPalin(str) {
     return acc;
   }, {});
 
-  if (count === 1 || count === 0) {
+  if (count <= 1) {
     return true;
   } else {
     return false;
