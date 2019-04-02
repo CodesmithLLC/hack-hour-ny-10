@@ -26,6 +26,6 @@ function permPalin(str) {
 	if(status.odd <= 1) return true;
 	else return false;
 }
-//console.log(permPalin('abcdadcbaaa'));
+//console.log(permPalin('asdfasdf'));
 
 module.exports = permPalin;
