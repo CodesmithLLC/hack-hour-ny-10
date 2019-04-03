@@ -17,7 +17,20 @@
  */
 
 function rotateGrid(grid, n) {
-
+  const answer = []
+  for (let i = 0; i < n; i++) {
+    answer.push([])
+  }
+  for (let i = n-1; i >= 0; i--) {
+    for (let j = 0; j < n; j++) {
+      answer[j].push(grid[i][j])
+    }
+  }
+  return answer
 }
+
+// all 3rd array is the first element 
+// all 2nd the second perpendicular
+// all 1st the third
 
 module.exports = rotateGrid;

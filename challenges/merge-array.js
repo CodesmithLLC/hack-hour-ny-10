@@ -14,7 +14,21 @@
  */
 
 function mergeArrays(arr1, arr2) {
+  if (arr1.length)
 
+  for (let i=0; i<longArr.length; i++) {
+    if (longArr[i] > shortArr[0]) {
+      longArr.splice(i, shortArr.pop())
+    } else {
+      
+    }
+  }
 }
 
 module.exports = mergeArrays;
+
+
+// while arr1 || arr2 exists
+// check the elements of the arrs
+// only move the pointer of the one after adding it
+// if the pointer on an arr is pointing to an element thats larger than the current el on the other arr dont move
