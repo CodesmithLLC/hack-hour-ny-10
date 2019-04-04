@@ -19,6 +19,7 @@ function validBST(tree) {
   if (tree.right) {
     return tree.right.value > tree.value ? false : validBST(tree.right);
   }
+  return true;
 }
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
