@@ -8,7 +8,23 @@
 
 function Stack() {
   // body...
-  this.stack = [];
+  this.length = 0;
+  this.store = {};
+  // this.max = {
+  //   idx: 0,
+  //   val: Number.NEGATIVE_INFINITY,
+  // }
+}
+
+Stack.prototype.push = function(val) {
+  this.store[this.length] = val;
+  this.length++;
+  return this.length;
+}
+
+Stack.prototype.pop = function(val) {
+  
+}
 
   function push(val) {
     const stackPush = this.stack.push(val);

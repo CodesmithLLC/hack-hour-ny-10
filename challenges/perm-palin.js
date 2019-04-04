@@ -9,23 +9,23 @@
  *
  */
 
-function permPalin(str) {
-  if (!str) return false;
-  if (str.length === 1) return true;
-  const count = {};
-  let letter;
-  let sum = 0;
-  for (let i = 0; i < str.length; i += 1) {
-    letter = str[i];
-    count[letter] = 0;
-    count[letter] += 1;
-  }
-  for (const countLetters in count) {
-    sum += count[countLetters];
-  }
-  return sum % 2;
-}
+function permPalin(str, perm = '') {
+  const dictionary = {};
+  let oddCount = 0;
 
-console.log(permPalin("cbaba"));
+  for (let i = 0; i < str.length; i++) {
+    const currentCharacter = str[i].toLowerCase();
+    if (!dictionary[currentCharacter]) dictionary[currentCharacter] = 1;
+    else dictionary[currentCharacter]++;
+  }
+
+  for (const character in dictionary) {
+    const characterCount = dictionary[character];
+    if (characterCount % 2 > 0) oddCount++;
+    if (oddCount > 1) return false;
+  }
+
+  return true;
+}
 
 module.exports = permPalin;
