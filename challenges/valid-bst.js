@@ -5,6 +5,12 @@
  * Assume that each value in the tree is unique.
  */
 
+function BinaryTree(val) {
+  this.value = val;
+  this.left = null;
+  this.right = null;
+}
+
 function validBST(tree) {
   if (!tree) return true;
   if (tree.right && tree.right.value < tree.value) return false;
@@ -15,7 +21,5 @@ function validBST(tree) {
 
   return valid;
 }
-
-function validBST(tree) {}
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
