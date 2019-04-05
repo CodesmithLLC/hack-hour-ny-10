@@ -15,10 +15,9 @@ function gcd(a, b) {
     let half = Math.floor(smallest/2);
     while(half > 1) {
         if(smallest%half === 0 && biggest%half === 0) return half;
-        else if(half%2 === 0) half -= 2;
-        else half--;
+        half--;
     } return 1;
 }
-console.log(gcd(16,12));
+console.log(gcd(9,12));
 
 module.exports = gcd;
