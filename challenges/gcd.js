@@ -19,6 +19,7 @@ function gcd(a, b) {
   for (let divisor = startPoint; divisor >= 1; divisor -= decrement) {
     if (a % divisor === 0 && b % divisor === 0) return divisor;
   }
+  return 1;
 }
 
 console.log(gcd(8, 44));
