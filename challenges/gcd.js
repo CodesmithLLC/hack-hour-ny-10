@@ -14,14 +14,14 @@ function gcd(a, b) {
   if (b % a === 0) return a;
   if (a % 2 === 0 && b % 2 === 0) decrement = 2;
   if (a > b) startPoint = Math.floor(b / 2);
-  else startPoint = Math.flooe(a / b);
+  else startPoint = Math.floor(a / 2);
   console.log(startPoint);
   for (let divisor = startPoint; divisor >= 1; divisor -= decrement) {
     if (a % divisor === 0 && b % divisor === 0) return divisor;
   }
 }
 
-console.log(gcd(11, 8));
+console.log(gcd(8, 44));
 console.log(gcd(99, 2));
 
 module.exports = gcd;
