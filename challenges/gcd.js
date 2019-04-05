@@ -8,7 +8,17 @@
  */
 
 function gcd(a, b) {
-
+    if(a === b) return a;
+    const smallest = (a <= b) ? a : b;
+    const biggest = (a <= b) ? b : a;
+    if(biggest%smallest === 0) return smallest;
+    let half = Math.floor(smallest/2);
+    while(half > 1) {
+        if(smallest%half === 0 && biggest%half === 0) return half;
+        else if(half%2 === 0) half -= 2;
+        else half--;
+    } return 1;
 }
+console.log(gcd(16,12));
 
 module.exports = gcd;
