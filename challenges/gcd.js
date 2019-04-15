@@ -8,11 +8,11 @@
  */
 
 function gcd(a, b) {
-  let tempA = a
-  a = Math.max(tempA,b)
-  b = Math.min(tempA,b)
+  // let tempA = a
+  // a = Math.max(tempA,b)
+  // b = Math.min(tempA,b)
   if (a % b === 0) return b;
-  return gcd(b, a%b)
+  return gcd(b, a % b);
 }
 
 module.exports = gcd;
