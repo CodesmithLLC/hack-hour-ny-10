@@ -16,6 +16,7 @@
  *  balancedParens('[({})]');   // true
  *  balancedParens('[(]{)}'); // false
  *
+ * ('( [ [)] )] )')
  * Step 3:
  * ignore non-bracket characters
  * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
@@ -25,7 +26,8 @@
  */
 
 function balancedParens(input){
-
+    let stack =[]
+    
 }
 
 module.exports = balancedParens;

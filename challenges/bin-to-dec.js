@@ -19,12 +19,26 @@ function binToDec(binary) {
     //moving backwards in the binary string
     for (let i = binary.length - 1; i >= 0; i--) {
         //getting the index to start from 0 
-
         console.log("char at i", parseInt(binary.charAt(i)))
         decNum += (parseInt(binary.charAt(i)) * Math.pow(2, counter))
         counter++
     }
     return decNum
+}
+
+function binToHex(binary) {
+    //using substring
+    let counter = 0;
+    let hexNum = 0;
+    let fourTemp = ""
+    //moving backwards in the binary string
+    for (let i = binary.length - 1; i >= 0; i -=4) {
+        //getting the index to start from 0 
+        console.log("char at i", parseInt(binary.charAt(i)))
+        hexNum += (parseInt(binary.charAt(i)) * Math.pow(2, counter))
+        counter++
+    }
+    return hexNum
 }
 
 console.log(binToDec('10'))

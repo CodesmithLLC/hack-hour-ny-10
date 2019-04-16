@@ -18,7 +18,35 @@
  */
 
 function romanNumeral(n) {
+    let string = ""
+    const romanDicArray = [
+        ["M" , 1000],
+        ["CM", 900],
+        ["D" , 500],
+        ["CD", 400],
+        ["C" , 100],
+        ["XC", 90],
+        ["L" , 50],
+        ["XL", 40],
+        ["X" , 10],
+        ["IX", 9],
+        ["V" , 5],
+        ["IV", 4],
+        ["I" , 1] 
+    ]
 
+    for (let i = 0; i<romanDicArray.length; i++){
+        console.log("N:", n)
+        console.log(romanDicArray[i][1])
+        while (n >= romanDicArray[i][1]) {
+            string += romanDicArray[i][0]
+            n -= romanDicArray[i][1]
+            console.log("String:", string)
+        }
+    }
+    return string
 }
+
+romanNumeral(43)
 
 module.exports = romanNumeral;

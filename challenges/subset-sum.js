@@ -9,7 +9,13 @@
  */
 
 function subsetSum(array, target) {
-
+    array.sort(function(a, b) {
+        return a - b;
+      });
+    for (let i = 0; i<array.length; i++){
+        target - i 
+    }
 }
 
+subsetSum([3, 7, 4, 2,-2, 1, -3], 5)
 module.exports = subsetSum;

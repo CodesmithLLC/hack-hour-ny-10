@@ -11,7 +11,23 @@
 
 
 function modemean(array) {
+    const mean = Math.floor(array)
+    const mode = new Number
+    let dict = {}
 
+    for (let i = 0; i < array.length; i++){
+        if(dict[array[i]]){
+            dict[array[i]] += 1
+        }
+        else {
+            dict[array[i]] = 1
+        }
+    }
+    for (let i = 0; i<dict.length; i ++) {
+        console.log("hi")
+        console.log(dict[i])
+    }
 }
 
+modemean([7,7,8,5,5,5,1,2,3,4])
 module.exports = modemean;

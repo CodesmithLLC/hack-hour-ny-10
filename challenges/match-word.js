@@ -11,7 +11,17 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    //last in, first out
+    //if word matches, pop and move on. otherwise move on
+    let stack = []
+    str.toLowerCase();
 
+    console.log(str)
+    //closed like brackets
+    //ignore noncharacters
+    //
 }
+
+matchWord('IF()()fi[]')
 
 module.exports = matchWord;
