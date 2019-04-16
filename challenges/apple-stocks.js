@@ -12,8 +12,16 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+//buy lowest, sell highest
+//index of purchase must be lower than index of sale
+//max net possible
 function bestProfit(stock_prices_yesterday) {
+  let stock_prices_yesterday = stock_prices_yesterday;
+  let moneySpent;
+  let moneyGain;
+  let net = moneySpent - moneyGain;
 
+  for (let i = stock_prices_yesterday.length - 1; i < 0; i--) {}
 }
 
 module.exports = bestProfit;

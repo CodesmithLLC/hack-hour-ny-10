@@ -18,7 +18,7 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  sumList = new Node(l1.head + l2.head);
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node: Node, addLinkedList: addLinkedList };
