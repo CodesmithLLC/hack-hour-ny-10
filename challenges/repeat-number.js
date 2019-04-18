@@ -11,7 +11,12 @@
  */
 
 function repeatNumbers(array) {
-
+    const sum = array.reduce((acc, i) => {
+        return acc += i;
+    }, 0);
+    const expected = ((array.length-1)*(array.length))/2;
+    return Math.abs(expected-sum);
 }
+//console.log(repeatNumbers([1,2,3,4]))
 
 module.exports = repeatNumbers;
