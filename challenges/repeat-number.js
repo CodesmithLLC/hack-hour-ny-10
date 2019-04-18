@@ -10,25 +10,16 @@
  *
  */
 
-function factorial(n) {
-  if (n === 1 || n === 0) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
-}
-
 function repeatNumbers(array) {
-  const fact = factorial(array.length - 1);
-  let multiply = 1;
+  let result = 0;
 
   for (let i = 0; i < array.length; i++) {
-    multiply *= array[i];
+    result = result ^ i ^ array[i];
   }
-  return multiply / fact;
+  return result;
 }
 
-// const arr = [1, 2, 3, 4, 4];
+// const arr = [1, 6, 7, 1];
 // console.log(repeatNumbers(arr));
 
 module.exports = repeatNumbers;
