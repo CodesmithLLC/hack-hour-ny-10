@@ -9,19 +9,19 @@
  * Do not assume the ranges are in order
  */
 
-// let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
-// console.log(mergeRanges(times));
+let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]; // [[0,5] [7,8] [10,11]]
+console.log(mergeRanges(times));
 
 function mergeRanges(array) {
   let obj = {};
   for (let el of array){
     let input = false;
     for (let entry of Object.entries(obj)){
-      if (el[0] < entry[1]){
+      if (el[0] <= entry[1]){
         if (el[0] > entry[0]) {
           obj[entry[0]] = Math.max(el[1], entry[1]);
         }
-        else {
+        else if (entry[0] <= el[1] ){
           delete obj[entry[0]];
           obj[el[0]] = Math.max(el[1], entry[1]);
         }
