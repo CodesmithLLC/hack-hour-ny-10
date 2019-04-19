@@ -11,22 +11,27 @@
  */
 
 function repeatNumbers(array) {
-  const obj = {};
-  for (let el of array) {
-    if (!obj[el]) {
-      obj[el] = 1;
-    } else {
-      obj[el] += 1;
-    }
-  }
-  for(let key in obj) {
-    if (obj[key] === 2) {
-      return key;
-    }
-  }
+  // const obj = {};
+  // for (let el of array) {
+  //   if (!obj[el]) {
+  //     obj[el] = 1;
+  //   } else {
+  //     obj[el] += 1;
+  //   }
+  // }
+  // for(let key in obj) {
+  //   if (obj[key] === 2) {
+  //     return key;
+  //   }
+  // }
+  const sum = ((array.length) * (array.length-1))/2
+  const actual = array.reduce((acc, el) => acc + el, 0)
+  return actual - sum 
 }
 
-const arr = [1, 2, 3, 4, 5, 6, 1]
+
+
+const arr = [1, 2, 3, 4, 5, 6, 3]
 console.log(repeatNumbers(arr))
 
 module.exports = repeatNumbers;
