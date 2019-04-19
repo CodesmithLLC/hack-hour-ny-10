@@ -9,8 +9,8 @@
  * Do not assume the ranges are in order
  */
 
-let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]; // [[0,5] [7,8] [10,11]]
-console.log(mergeRanges(times));
+// let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]; // [[0,5] [7,8] [10,11]]
+// console.log(mergeRanges(times));
 
 function mergeRanges(array) {
   let obj = {};
