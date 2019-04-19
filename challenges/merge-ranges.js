@@ -11,7 +11,26 @@
 
 
 function mergeRanges(array) {
-
+  let obj = {};
+  for (let el of array){
+    let input = false;
+    for (let entry of Object.entries(obj)){
+      if (el[0] < entry[1]){
+        if (el[0] > entry[0]) {
+          obj[entry[0]] = Math.max(el[1], entry[1]);
+        }
+        else {
+          delete obj[entry[0]];
+          obj[el[0]] = Math.max(el[1], entry[1]);
+        }
+        input = true;
+      }
+    }
+    if (!input) {
+      obj[el[0]] = el[1];
+    }
+  }
+  return Object.entries(obj);
 }
 
 module.exports = mergeRanges;
