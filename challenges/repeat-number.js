@@ -14,6 +14,7 @@ function repeatNumbers(array) {
   let i = 0;
   while (i < array.length) {
     let cur = Math.abs(array[i])
+    if (array[cur - 1] < 0) {return cur} // early exit
     array[cur - 1]  *= -1
     i += 1
   }
@@ -24,7 +25,7 @@ function repeatNumbers(array) {
   }
 }
 
-let a = [2,3,4,5,1,3]
+let a = [2,3,4,5,3,1]
 console.log(repeatNumbers(a))
 
 module.exports = repeatNumbers;
