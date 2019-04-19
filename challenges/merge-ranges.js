@@ -9,6 +9,8 @@
  * Do not assume the ranges are in order
  */
 
+// let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
+// console.log(mergeRanges(times));
 
 function mergeRanges(array) {
   let obj = {};
@@ -30,7 +32,7 @@ function mergeRanges(array) {
       obj[el[0]] = el[1];
     }
   }
-  return Object.entries(obj);
+  return Object.entries(obj).map((time) => {return time.map(Number)});
 }
 
 module.exports = mergeRanges;
