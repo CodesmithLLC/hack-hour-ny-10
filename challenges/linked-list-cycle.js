@@ -36,7 +36,7 @@ function hasCycle(head) {
   if(!head) return false;
   let fast = head;
   let slow = head;
-  while(fast && slow) {
+  while(fast && fast.next && slow) {
     fast = fast.next.next;
     slow = slow.next;
     if(fast === slow) return true;
