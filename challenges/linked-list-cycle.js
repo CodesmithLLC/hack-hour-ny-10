@@ -33,10 +33,74 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-  curr = this.value;
-  while(curr) {
-    if (curr.value)
+  
+  let p1Slow = head;
+  let p2Fast = head;
+  
+  while (p2Fast && p2Fast.next) {
+    p1Slow = p1Slow.next;
+    p2Fast = p2Fast.next.next;
+
+
+    if (p1Slow === p2Fast) {
+      return true
+    }
   }
+  return false;
+  
+  
+  
+  
+  
+  // let isLoop;
+  // console.log(p1Slow.next.next)
+  
+  // //loop detection, basic condition for loop to exist
+  // while (p2Fast.next.next) {
+  //   p1Slow = p1Slow.next
+  //   p2Fast = p2Fast.next.next
+
+  //   if (p1Slow.value === p2Fast.value) {
+  //     isLoop = true;
+  //     break;
+  //   }
+  // }
+  // //loop beginning detection
+  // if (isLoop) {
+  //   p1Slow = head;
+  //   while (p1Slow !== p2Fast) {
+  //     p1Slow = p1Slow.next;
+  //     p2Fast = p2Fast.next
+  //   }
+  //   return p1Slow;
+  // } else {
+  //   return;
+  // }
+
+  // curr = this.value;
+  // while(curr) {
+  //   if (curr.value)
+  // }
+
+
 }
+
+// function LinkedList () {
+//   this.head = null;
+// }
+
+// let L1 = new LinkedList();
+// let testData = [1, 2, 3, 4, 5, 6]
+// testData.forEach( el => L1.insertNodeAtTail(el))
+
+
+let node1 = new Node('1');
+let node2 = node1.next = new Node('2');
+let node3 = node2.next = new Node('3');
+let node4 = node3.next = new Node('4');
+let node5 = node4.next = new Node('5');
+console.log(hasCycle(node1)); // => false
+node5.next = node2;
+console.log(hasCycle(node1)); // => true
 
 module.exports = {Node: Node, hasCycle: hasCycle}
