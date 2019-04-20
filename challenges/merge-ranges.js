@@ -20,7 +20,8 @@ function mergeRanges(array) {
     let temp = array[0];
     for(let i = 1; i < array.length; i++) {
         const arr = array[i];
-        if(arr[0] <= temp[1]) temp[1] = arr[1];
+        if(arr[0] <= temp[1] && arr[1] >= temp[1]) temp[1] = arr[1];
+        else if(arr[0] <= temp[1] && arr[1] <= temp[1]) continue; 
         else {
             result.push(temp);
             temp = arr;
@@ -29,6 +30,7 @@ function mergeRanges(array) {
     return result;
 }
 
-//console.log(mergeRanges([[0, 1]]))
+console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]))
+console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [5, 6]]))
 
 module.exports = mergeRanges;
