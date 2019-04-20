@@ -27,13 +27,29 @@
  *
  */
 
-var Node = function(value) {
+const Node = function (value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
+  let pointer1;
+  let pointer2;
 
+  if (!head || !head.next) return false;
+
+  pointer1 = head;
+  pointer2 = head;
+
+  if (head.next === head) return true;
+
+  while (pointer2.next.next) {
+    pointer1 = pointer1.next;
+    pointer2 = pointer2.next.next;
+
+    if (pointer1 === pointer2) return true;
+  }
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node, hasCycle };
