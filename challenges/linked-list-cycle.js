@@ -33,6 +33,7 @@ var Node = function(value) {
 };
 
 function hasCycle(head) {
+  if (!head) return false;
   const repeats = {};
   let next = head.next;
   repeats[head.value] = 1;
