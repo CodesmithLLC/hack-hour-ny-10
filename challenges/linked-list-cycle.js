@@ -33,16 +33,28 @@ var Node = function (value) {
 }
 
 function hasCycle(head) {
-  let slowP = this.head;
-  let fastP = this.head;
+  let slowP = head;
+  let fastP = head;
   let counter = 0
   while (fastP !== null) {
+    fastP = fastP.next;
     if (counter % 2) slowP = slowP.next;
     if (fastP === slowP) return true;
-    fastP = fastP.next;
     counter++
   }
   return false
 }
+
+var node1 = new Node('1');
+var node2 = node1.next = new Node('2');
+var node3 = node2.next = new Node('3');
+var node4 = node3.next = new Node('4');
+var node5 = node4.next = new Node('5');
+var node6 = node5.next = new Node('6')
+var node7 = node6.next = new Node('7')
+console.log(hasCycle(node1)); // => false
+node7.next = node2;
+console.log(hasCycle(node1)); // => true
+
 
 module.exports = { Node: Node, hasCycle: hasCycle }
