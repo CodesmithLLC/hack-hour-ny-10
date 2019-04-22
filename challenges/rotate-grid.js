@@ -1,5 +1,5 @@
-/* You are given a NxN grid of elements represented by a 2D array. The ith nested array represents 
- * the ith row in the grid.
+/* You are given a NxN grid of elements represented by a 2D array. 
+The ith nested array represents the ith row in the grid.
  * 
  * Write a function to rotate the grid 90 degrees clockwise. 
  *
@@ -16,6 +16,8 @@
  * BONUS: Do this in place
  */
 
+
+ //https://medium.com/front-end-weekly/matrix-rotation-%EF%B8%8F-6550397f16ab
 function rotateGrid(grid, n) {
 
 }
