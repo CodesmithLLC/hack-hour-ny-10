@@ -13,8 +13,6 @@ function sumMultiples3Or5Below1000() {
   return sum;
 }
 
-console.log(sumMultiples3Or5Below1000());
-
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
