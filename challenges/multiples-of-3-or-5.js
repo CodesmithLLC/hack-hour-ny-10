@@ -5,9 +5,9 @@
 // write a function that will find the sum of all the multiples of 3 or 5
 // below 1000 and return that sum.
 
-function sumMultiples3Or5Below1000(value) {
+function sumMultiples3Or5Below1000() {
   let sum = 0;
-  let num = value - 1;
+  let num = 999;
   while (num > 0) {
     if (num % 3 === 0 || num % 5 === 0) sum += num;
     num -= 1;
@@ -16,7 +16,7 @@ function sumMultiples3Or5Below1000(value) {
   return sum;
 }
 
-console.log(sumMultiples3Or5Below1000(1000))
+console.log(sumMultiples3Or5Below1000(10))
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
