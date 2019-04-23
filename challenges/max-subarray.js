@@ -16,7 +16,7 @@ function maxSubarray(arr) {
         const first = arr[front];
         if(first <= 0) {
             front++; end++;
-			max = Math.max(max, first);
+			max = Math.max(max, arr[front]);
         } else {
 			if(sum === 0) sum += first;
             sum += arr[++end];
@@ -28,6 +28,6 @@ function maxSubarray(arr) {
         }
     } return max;
 }
-//console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
+//console.log(maxSubarray([-5,-3,-2,-1,5,8]));
 
 module.exports = maxSubarray;
