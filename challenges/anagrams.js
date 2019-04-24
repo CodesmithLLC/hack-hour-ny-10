@@ -19,7 +19,10 @@ function anagrams(string) {
   const helper = (chosen, options) => {
     // base case
     if (chosen.length === string.length) {
-      output.push(chosen.join(''));
+      let chosenStr = chosen.join('')
+      if (!output.includes(chosenStr)) {
+        output.push(chosenStr);
+      }
       return;
     }
     for (let i = 0; i < options.length; i += 1) {
