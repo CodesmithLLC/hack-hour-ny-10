@@ -12,29 +12,25 @@
 
 function maxSubarray(arr) {
   if (!arr) return undefined;
-  let max = arr[0];
-  // let begin = 0;
-  let end = 1;
-  let curSum = arr[0];
+  let max = -Infinity;
+  let end = 0;
+  let curSum = -Infinity;
   while (end < arr.length) {
-    // console.log('End: ', end,'CurSum: ', curSum,'CurEnd: ', arr[end],'CurMax: ', max)
-    if (arr[end] >= 0 || curSum + arr[end] > 0) {
-      // if current # is positive OR its addition results in a non-neg sum
-      curSum += arr[end]; // increase the cursum
-      max = Math.max(max, curSum); // update the max
-      end++; // advance the end
+    if (curSum < 0 && arr[end] > curSum) {
+      curSum = arr[end]
+    } else if (curSum + arr[end] > 0) {
+      curSum += arr[end]
     } else {
-      // reset the start
-      end++; // advance the end
-      curSum = arr[end]; // reset the end
-      max = Math.max(max, curSum); // update the max
-      end++; // advance the end
+      curSum = -Infinity
     }
+    max = Math.max(max, curSum)
+    end++
   }
   return max;
 }
 
-console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])); //-> 18 from [3, 10, -4, 7, 2]
-console.log(maxSubarray([15, 20, -5, 10])); //-> 40
-
+// console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])); //-> 18 from [3, 10, -4, 7, 2]
+// console.log(maxSubarray([15, 20, -5, 10])); //-> 40
+// console.log(maxSubarray([-20, -15, -25, -24]))
+console.log(maxSubarray([10, -5, 12, -40, 25]))
 module.exports = maxSubarray;
