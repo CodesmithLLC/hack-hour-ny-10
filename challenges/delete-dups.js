@@ -13,7 +13,21 @@
 
 
 function deleteDups(head) {
+  var current = head; 
+  var vals = new Set();
+  var prev; 
 
+  while (current ){
+    if(vals.has(current.value)) {
+      prev.next = current.next; 
+    } else {
+      vals.add(current.value)
+    }
+    prev = current; 
+    current = current.next
+  }
+ 
+  return ll 
 }
 
 module.exports = deleteDups;
