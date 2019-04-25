@@ -13,7 +13,31 @@
 
 
 function deleteDups(head) {
-
+  // hash map solution, linear time, linear space
+  // delete a node by assigning it the 'value' and 'next' properties of its .next
+  const originalHead = head
+  let lastFlag = false
+  const map = {}
+  while (head){
+    if (map[head.value]){
+      if (!head.next){
+        lastFlag = true;
+        break;
+      }
+      head.value = head.next.value;
+      head.next = head.next.next;
+    }
+    map[head.value] = 1;
+    head = head.next
+  }
+  if (lastFlag){
+    head = originalHead
+    while (head.next.next){
+      head = head.next
+    }
+    head.next = null
+  }
+  return originalHead
 }
 
 module.exports = deleteDups;
