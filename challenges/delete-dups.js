@@ -22,8 +22,9 @@ function deleteDups(head) {
       prev.next = current.next; 
     } else {
       vals.add(current.value)
+      prev = current; 
     }
-    prev = current; 
+
     current = current.next
   }
  
