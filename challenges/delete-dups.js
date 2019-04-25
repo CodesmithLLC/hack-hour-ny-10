@@ -10,17 +10,15 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-
 function deleteDups(head) {
   // hash map solution, linear time, linear space
   // delete a node by assigning it the 'value' and 'next' properties of its .next
-  const originalHead = head
-  let lastFlag = false
-  const map = {}
-  while (head){
-    if (map[head.value]){
-      if (!head.next){
+  const originalHead = head;
+  let lastFlag = false;
+  const map = {};
+  while (head) {
+    if (map[head.value]) {
+      if (!head.next) {
         lastFlag = true;
         break;
       }
@@ -28,16 +26,16 @@ function deleteDups(head) {
       head.next = head.next.next;
     }
     map[head.value] = 1;
-    head = head.next
+    head = head.next;
   }
-  if (lastFlag){
-    head = originalHead
-    while (head.next.next){
-      head = head.next
+  if (lastFlag) {
+    head = originalHead;
+    while (head.next.next) {
+      head = head.next;
     }
-    head.next = null
+    head.next = null;
   }
-  return originalHead
+  return originalHead;
 }
 
 module.exports = deleteDups;
