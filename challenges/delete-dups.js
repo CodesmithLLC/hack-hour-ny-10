@@ -27,7 +27,7 @@ function deleteDups(head) {
     current = current.next
   }
  
-  return ll 
+  return head 
 }
 
 module.exports = deleteDups;
