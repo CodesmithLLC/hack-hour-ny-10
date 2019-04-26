@@ -22,15 +22,28 @@
  */
 
 function EventEmitter() {
-
+    this.obj = {};
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+    this.obj[funcName] = func;
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+    this.obj[funcName](args);
 };
+
+// let count = 0;
+// let arr = [1,2,3];
+// console.log(count);
+// console.log(arr);
+// let item = new EventEmitter();
+// item.on('increment', () => console.log(++count));
+// item.on('printArr', (array) => {
+//     array.forEach(item => console.log(item));
+// });
+// item.trigger('increment');
+// item.trigger('printArr');
+// item.trigger('increment');
 
 module.exports = EventEmitter;
