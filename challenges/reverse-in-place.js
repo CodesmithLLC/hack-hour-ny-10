@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Write a function to reverse an array in place
  *
@@ -15,12 +13,13 @@
  */
 
 function reverseInPlace(array) {
-  for (let i = 0, j = array.length - 1; i < array.length / 2; i += 1, j -= 1) {
-    const placeholder = array[j];
-    array[j] = array[i];
-    array[i] = placeholder;
+  for (let i = 0; i < array.length / 2; i++) {
+    const left = array[i];
+    const right = array[array.length - 1 - i];
+    array[i] = right;
+    array[array.length - 1 - i] = left;
   }
-  console.log(array);
+  return array;
 }
 
 reverseInPlace([1, 2, 3, 4, 5]);

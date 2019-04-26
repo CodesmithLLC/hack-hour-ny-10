@@ -14,15 +14,16 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-  let currentNode = head;
-  let previous = null;
-  while (currentNode) {
-    const pointer = currentNode.next;
-    currentNode.next = previous;
-    previous = currentNode;
-    currentNode = pointer;
+  let pointer1 = head;
+  let pointer2 = head.next;
+  head.next = null;
+  while (pointer2) {
+    head = pointer2;
+    pointer2 = head.next;
+    head.next = pointer1;
+    pointer1 = head;
   }
-  return previous;
+  return head;
 }
 
 module.exports = { Node, reverseLinkedList };

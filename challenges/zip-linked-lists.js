@@ -27,6 +27,8 @@ function zip(l1, l2) {
   return l1;
 }
 
+// MERGING IN ORDER OF GREATER VALUE
+
 function Node(val) {
   this.value = val;
   this.next = null;

@@ -11,54 +11,51 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
+const ONES = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+const TENS = ['', 'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninty'];
+const PLACES = ['', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+​
 function numToWords(num) {
-  const wordNums = {
-    OneThousand: 1000,
-    NineHundred: 900,
-    EightHundred: 800,
-    SevenHundred: 700,
-    SixHundred: 600,
-    FiveHundred: 500,
-    FourHundred: 400,
-    ThreeHundred: 300,
-    TwoHundred: 200,
-    OneHundred: 100,
-    Ninety: 90,
-    Eighty: 80,
-    Seventy: 70,
-    Sixty: 60,
-    Fifty: 50,
-    Fourty: 40,
-    Thirty: 30,
-    Twenty: 20,
-    Nineteen: 19,
-    Eighteen: 18,
-    Seventeen: 17,
-    Sixteen: 16,
-    Fifteen: 15,
-    Fourteen: 14,
-    Thirteen: 13,
-    Twelve: 12,
-    Eleven: 11,
-    Ten: 10,
-    Nine: 9,
-    Eight: 8,
-    Seven: 7,
-    Six: 6,
-    Five: 5,
-    Four: 4,
-    Three: 3,
-    Two: 2,
-    One: 1,
-  };
-  let numWord = '';
-  for (const key in wordNums) {
-    while (num >= wordNums[key]) {
-      numWord += key;
-      num -= wordNums[key];
-    }
-  }
-  return numWord;
+ if (!num) return 'Zero';
+ str = String(num);
+ while (str.length % 3) {
+  str = '0' + str;
+ }
+ return recurringNum(str)
+     .replace('TenOne', 'Eleven')
+     .replace('TenTwo', 'Twelve')
+     .replace('TenThree', 'Thirteen')
+     .replace('TenFour', 'Fourteen')
+     .replace('TenFive', 'Fifteen')
+     .replace('TenSix', 'Sixteen')
+     .replace('TenSeven', 'Seventeen')
+     .replace('TenEight', 'Eighteen')
+     .replace('TenNine', 'Nineteen');
+}
+​
+function recurringNum(str) {
+ if (!str.length) return '';
+ let nextNums = str.slice(0,3);
+ let nextWords;
+ if (nextNums === '000') {
+  nextWords = '';
+ } else {
+  let placesIndex = Math.floor(str.length / 3) - 1;
+  nextWords = parseThreeDigits(nextNums) + PLACES[placesIndex];
+ }
+ return nextWords + recurringNum(str.slice(3));
+}
+​
+function parseThreeDigits(digits) {
+ let words;
+ if (digits >= 100) {
+  words = ONES[digits[0]] + 'Hundred' + TENS[digits[1]] + ONES[digits[2]];
+ } else if (digits >= 10 ) {
+  words = TENS[digits[1]] + ONES[digits[2]];
+ } else {
+  words = ONES[digits[2]];
+ }
+ return words;
 }
 
 module.exports = numToWords;
