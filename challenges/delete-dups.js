@@ -13,6 +13,9 @@
 
 
 function deleteDups(head) {
+
+  if(!head) return head; 
+  
   var current = head; 
   var vals = new Set();
   var prev; 
