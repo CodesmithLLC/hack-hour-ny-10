@@ -5,7 +5,7 @@
 
 
 function insertionSort(array) {
-  if(arr.length <= 1 ) return array; 
+  if(array.length <= 1 ) return array; 
 
   for ( let i = 1 ; i < array.length; i += 1) {
     for ( let j = i ; j > 0 ; j-=1) {
