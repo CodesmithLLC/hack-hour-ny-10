@@ -15,7 +15,6 @@ function findInOrderedSet(arr, target) {
 
   while (start <= end) {
     let mid = Math.floor((start + end) / 2);
-    console.log('start', start, 'end', end, 'mid', mid);
     if (arr[mid] === target) return true;
     else if (arr[mid] > target) {
       end = mid - 1;
@@ -26,5 +25,5 @@ function findInOrderedSet(arr, target) {
   return false;
 }
 
-console.log(findInOrderedSet([1, 2, 3, 5, 6, 7, 8, 9], 9));
+// console.log(findInOrderedSet([1, 2, 3, 5, 6, 7, 8, 9], 9));
 module.exports = findInOrderedSet;
