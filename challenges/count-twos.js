@@ -22,4 +22,60 @@ console.log(countTwos(13)); // 2
 console.log(countTwos(1000)); // 300
 console.log(countTwos(11420)); // 4483
 
+// OPTIMIZED LINEAR APPROACH
+
+function countTwos(num) {
+  var totalTwos = 0;
+  let numString = num.toString();
+  let digitsPlace = numString.length;
+
+  for (let i = 0; i < numString.length; i++) {
+    /* STRIP NUM STRING TO GET DIGIT + PLACE IN STRING */
+    // get current digit, ex: 1 of 152
+    let currentDigit = Number(numString[i]);
+
+    // get base, ex: 100 = 1 in 152
+    let baseDigit = currentDigit * Math.pow(10, digitsPlace - 1);
+
+    // Count the number of twos in the base value
+    // ex: 100 -> 100 has 20 twos,
+    // ex: 50 -> base is 1 * current number (5) -> 5
+    const baseCountTwos = currentDigit * (digitsPlace - 1) * 10 ** (digitsPlace - 2);
+
+    // Add baseCountTwos to totalTwos counter.
+    console.log('calcutlate base digit', (digitsPlace - 1) * 10 ** (digitsPlace - 2));
+    totalTwos += baseCountTwos;
+
+    // Store remaining: 152 - 100 = 52
+    const remaining = num - baseDigit;
+
+    /* CHECK VALUE OF CURRENT DIGENT, ADJUST ACCORDINGLY */
+    // if currentDigit is 2, get total twos in base and account for fist digit
+    // ex1: 2 of 152 === 1... so, base of 0 + 1 'two' that is remaining between between 1 - 9.
+    // ex2: 2 of 121 === 2 (12, 20), so base of 2 + 1 'two' that is remaining between 1 - 9
+    if (currentDigit === 2) totalTwos += remaining + 1;
+
+    // if currentDigit is greater than 2, take base + number of twos in digitsPlace
+    // First, take base twos: 50 -> (2, 12, 22, 32, 42) = 5 (calculate above)
+    // Next, Account for missing twos in digits place: 20 - 29 = 1
+    if (currentDigit > 2) totalTwos += Math.pow(10, digitsPlace - 1);
+
+    //console.log('Input:', num, '|', 'baseDigit', baseDigit, ',', 'currentDigit:', currentDigit, '->', 'total twos in base:', (digitsPlace - 1) * 10 ** (digitsPlace - 2), '*', 'currentDigit:', currentDigit, '=', 'baseCountTwos', baseCountTwos);
+    // reduce num to next digits place 152 becomes 52, 52 become 2
+    num = remaining;
+
+    /* update digits place: 152 -> 152
+                            ^       ^ 
+    */
+    digitsPlace--;
+  }
+  return totalTwos;
+}
+
+console.log('-------------------Optimize Approach --------------------');
+//
+console.log(countTwos(50), 'f(150) -> 15');
+console.log(countTwos(13), 'f(13) -> 2');
+console.log(countTwos(54), 'f(54) -> 16');
+
 module.exports = countTwos;

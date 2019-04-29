@@ -14,13 +14,34 @@
  */
 
 function mergeArrays(arr1, arr2) {
-  const joinedArray = [...arr1, ...arr2];
-  joinedArray.sort((a, b) => {
-    if (a > b) return 1;
-    if (a < b) return -1;
-    return 0;
-  });
-  return joinedArray;
+  if (!arr1.length && arr2.length) return arr2;
+  if (arr1.length && !arr2.length) return arr1;
+  if (!arr1.length && !arr2.length) return [];
+
+  const output = [];
+  let p1 = 0;
+  let p2 = 0;
+
+  while (p1 < arr1.length || p2 < arr2.length) {
+    if (arr1[p1] < arr2[p2] || arr2[p2] === undefined) {
+      output.push(arr1[p1]);
+      p1 += 1;
+    } else {
+      output.push(arr2[p2]);
+      p2 += 1;
+    }
+  }
+  return output;
 }
+
+// function mergeArrays(arr1, arr2) {
+//   const joinedArray = [...arr1, ...arr2];
+//   joinedArray.sort((a, b) => {
+//     if (a > b) return 1;
+//     if (a < b) return -1;
+//     return 0;
+//   });
+//   return joinedArray;
+// }
 
 module.exports = mergeArrays;

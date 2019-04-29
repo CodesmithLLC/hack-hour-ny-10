@@ -14,10 +14,7 @@ function subsetSum(array, target) {
   // 2nd base case: if array is empty return false (depleted all elements in array without getting to sum)
   if (!array.length) return false;
   // Split recursion, either counting or not counting the first value
-  return (
-    subsetSum(array.slice(1), target - array[0])
-    || subsetSum(array.slice(1), target)
-  );
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 }
 
 module.exports = subsetSum;

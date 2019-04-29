@@ -13,8 +13,39 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function superBalanced(node) {
+  // Null nodes are balanced and serve as base case
+  if (!node) return true;
+  // Difference of max depth between left and right must be <= 1
+  // Recurse to check all subtrees
+  return (
+    Math.abs(maxDepth(node.left) - maxDepth(node.right)) <= 1 &&
+    superBalanced(node.left) &&
+    superBalanced(node.right)
+  );
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+// Recursive function to find greatest depth in tree
+function maxDepth(node) {
+  if (!node) return 0;
+  return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+}
+
+// Binary Tree Class & Add Method
+function BinaryTree(value) {
+  this.value = value;
+  this.right = null;
+  this.left = null;
+}
+
+BinaryTree.prototype.add = function(value) {
+  if (value < this.value) {
+    if (this.left === null) this.left = new BinaryTree(value);
+    else this.left.add(value);
+  } else if (value > this.value) {
+    if (this.right === null) this.right = new BinaryTree(value);
+    else this.right.add(value);
+  }
+};
+
+module.exports = { BinaryTree, superbalanced };

@@ -12,15 +12,33 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-  if (!stock_prices_yesterday) return 0;
-  const sortedPrices = stock_prices_yesterday.sort((a, b) => {
-    if (a > b) return 1;
-    if (a < b) return -1;
-    return 0;
-  });
-  if (sortedPrices[sortedPrices.length - 1] - sortedPrices[0] <= 0) return 0;
-  return sortedPrices[sortedPrices.length - 1] - sortedPrices[0];
+function bestProfit(sPrices) {
+  if (!sPrices) return 0;
+  let profit = 0;
+  let buy = sPrices[0];
+  let sell = sPrices[0];
+  for (let i = 1; i < sPrices.length; i += 1) {
+    if (sPrices[i] > sPrices[i - 1]) {
+      // if we are increasing in price
+      if (sPrices[i - 1] < buy) {
+        // check to see if we are increasing from a new low
+        buy = sPrices[i - 1];
+        sell = sPrices[i]; // reset sell to be after buy
+        profit = Math.max(profit, sell - buy); // see if we could have made more profit
+      }
+      if (sPrices[i] > sell) {
+        // if we are increasing && price is higher than sell
+        sell = sPrices[i]; // increase sell
+        profit = Math.max(profit, sell - buy); // check profit; return max of existing option and new option
+      }
+    }
+  }
+  return Math.max(profit, 0); // return max of 0 and potential profit
 }
+
+console.log(bestProfit([1, 3, 5, 8, 9, 11, 4, 2]));
+console.log(bestProfit([23]));
+console.log(bestProfit([5, 4]));
+console.log(bestProfit([9, 5, 4, 12, 6, 19, 4]));
 
 module.exports = bestProfit;
