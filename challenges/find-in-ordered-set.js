@@ -30,7 +30,8 @@ function findInOrderedSet(arr, target) {
   
   return (arr[lo] === target) ? true: false
 }
- //  -> true
+// var nums = [1, 4, 6, 7, 9, 17, 45]
+// console.log(findInOrderedSet(nums, 4)); // -> true
 
 
 
