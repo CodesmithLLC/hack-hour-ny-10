@@ -10,6 +10,7 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 function findInOrderedSet(arr, target) {
+  // do iterative now pls
   if (!arr.length) return false;
 
   const cand = arr[Math.floor(arr.length / 2)];
