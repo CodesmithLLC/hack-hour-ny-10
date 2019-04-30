@@ -26,7 +26,7 @@ function EventEmitter() {
   this.events = {};
 }
 
-EventEmitter.prototype.on = function (event, func) {
+EventEmitter.prototype.on = function(event, func) {
   // If event exists, push onto array
   if (this.events[event]) {
     this.events[event].push(func);
@@ -37,13 +37,33 @@ EventEmitter.prototype.on = function (event, func) {
   }
 };
 
-EventEmitter.prototype.trigger = function (event, ...args) {
+EventEmitter.prototype.trigger = function(event, ...args) {
   // If event exists, run every function for event
   if (this.events[event]) {
-    this.events[event].forEach((func) => {
+    this.events[event].forEach(func => {
       func(...args);
     });
   } else return undefined;
+};
+
+// ALTERNATIVE
+
+function EventEmitter() {}
+
+EventEmitter.prototype.on = function(funcName, func) {
+  if (!this[funcName]) {
+    this[funcName] = [];
+  }
+  this[funcName].push(func);
+};
+
+EventEmitter.prototype.trigger = function(funcName) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  if (this[funcName]) {
+    for (var i = 0; i < this[funcName].length; i++) {
+      this[funcName][i].apply(this, args);
+    }
+  }
 };
 
 module.exports = EventEmitter;
