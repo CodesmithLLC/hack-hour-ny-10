@@ -25,5 +25,24 @@ function findInOrderedSet(arr, target) {
   return false;
 }
 
+// RECURSIVE SOLUTION:
+// function findInOrderedSet(arr, target) {=
+//   // get the value at the middle of the array
+//   const mid = Math.floor(arr.length/2);
+
+//   // if value has been found
+//   if (arr[mid] === target) return true;
+
+//   // recursively search left half of the array
+//   else if (target < arr[mid]) return findInOrderedSet(arr.slice(0,mid), target);
+
+//   // recursively search right half of the array
+//   else if (target > arr[mid]) return findInOrderedSet(arr.slice(mid+1),target)
+
+//   // if value is not found
+//   return false;
+
+// }
+
 // console.log(findInOrderedSet([1, 2, 3, 5, 6, 7, 8, 9], 9));
 module.exports = findInOrderedSet;
