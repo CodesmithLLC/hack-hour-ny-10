@@ -10,7 +10,10 @@
  *
  */
 function uniqueNumber(array) {
-
+    const total = (array.length + 1) / 2;
+    const expected = (total * (total + 1));
+    const sum = array.reduce((sum, item) => { return sum += item; }, 0);
+    return expected - sum;
 }
 
 module.exports = uniqueNumber;
