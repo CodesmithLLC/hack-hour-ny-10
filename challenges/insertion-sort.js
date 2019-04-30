@@ -21,7 +21,7 @@ const swap = (arr, a, b) => {
   arr[b] = tmp;
 }
 
-let test = [5,4,3,2,1,6,2,9,5];
+let test = [5,4,3,2,1,6,2,9,5, 1, 9, 3, 235, -1, 7];
 console.log(insertionSort(test))
 
 module.exports = insertionSort;
