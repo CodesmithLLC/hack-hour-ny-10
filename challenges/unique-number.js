@@ -10,12 +10,12 @@
  *
  */
 function uniqueNumber(array) {
-  if (!array.length) return undefined
+  if (!array.length) return undefined;
   let output = 0;
-  for (let el of array){
+  for (let el of array) {
     output = output ^ el;
   }
-  return output
+  return output;
 }
 
 module.exports = uniqueNumber;
