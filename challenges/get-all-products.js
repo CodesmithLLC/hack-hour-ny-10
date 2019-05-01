@@ -20,20 +20,33 @@ function getAllProducts(array) {
   for (let i = 2; i < array.length; i++) {
     totalProduct *= array[i];
   }
-  totalProduct = array.reduce((acc, el, i) => {
-    if (i !== 1 && i !== 2) {
-      acc *= el;
-    }
-    return acc;
-  }, array[1]);
+
+  // reduce version:
+  // totalProduct = array.reduce((acc, el, i) => {
+  //   if (i !== 1 && i !== 2) {
+  //     acc *= el;
+  //   }
+  //   return acc;
+  // }, array[1]);
 
   let output = [totalProduct];
   for (let i = 0; i < array.length; i++) {
     if (el === 0) {
-      output.push(array.reduce());
+      output.push(
+        array.reduce((acc, el, idx) => {
+          if (idx !== i) {
+            acc *= el;
+          }
+          return acc;
+        }),
+      );
     } else {
+      totalProduct /= array[i];
+      totalProduct *= array[i - 1];
+      output.push(totalProduct);
     }
   }
+  return output;
 }
 
 module.exports = getAllProducts;
