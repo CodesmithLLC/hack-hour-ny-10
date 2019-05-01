@@ -25,9 +25,9 @@ function getAllProducts(arr) {
   }
 
   return output;
+  
 }
 
-let a = getAllProducts([1, 7, 3, 4]); //->  [84, 12, 28, 21]
-console.log(a);
+
 
 module.exports = getAllProducts;
