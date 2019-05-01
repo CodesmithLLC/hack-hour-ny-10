@@ -30,8 +30,8 @@ function getAllProducts(array) {
   // }, array[1]);
 
   let output = [totalProduct];
-  for (let i = 0; i < array.length; i++) {
-    if (el === 0) {
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] === 0) {
       output.push(
         array.reduce((acc, el, idx) => {
           if (idx !== i) {
