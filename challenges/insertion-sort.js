@@ -28,6 +28,25 @@ function insertionSort(array) {
   return array;
 }
 
-console.log(insertionSort([5, 67, 2, 16, 8, 1, 6, 81]));
+// function insertionSort(arr) {
+//   // if array is empty
+//   if (arr.length === 0) return undefined
+
+//   for (let i = 1; i < arr.length; i++) {
+//     const key = arr[i];
+//     // set inner tracker to one element previous to current element
+//     let innerTracker = i - 1;
+//     // while any elements before our key is greater than current key, we're going to perform a swap
+//     while (innerTracker >= 0 && arr[innerTracker] > key) {
+//         let temp = arr[innerTracker];
+//         arr[innerTracker]= key;
+//         arr[innerTracker+1] = temp;
+//         innerTracker--
+//     }
+//   }
+//   return arr;
+// }
+
+// console.log(insertionSort([5, 67, 2, 16, 8, 1, 6, 81]));
 
 module.exports = insertionSort;
