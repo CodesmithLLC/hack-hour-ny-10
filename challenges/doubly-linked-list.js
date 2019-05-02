@@ -70,8 +70,9 @@ LinkedList.prototype.remove = function(target) {
     return tmp;
   } else {
     let targetNode = cur.next;
-    cur.next = cur.next.next;
-    cur.next.next.prev = cur;
+    let newNext = cur.next.next;
+    cur.next = newNext
+    newNext.prev = cur;
     return targetNode
   }
 
@@ -81,9 +82,9 @@ LinkedList.prototype.remove = function(target) {
 // ll.add(5)
 // ll.add(10)
 // ll.add(15)
+// ll.remove(10)
 // ll.add(20)
-// ll.remove(5)
-// ll.add(100)
+// // ll.add(100)
 // console.log(ll)
 
 module.exports = LinkedList;
