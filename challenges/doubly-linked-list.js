@@ -34,30 +34,47 @@ Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(target) {
   let cur = this.head;
+  // five cases ->  1) Head is null (no elements in LL)
+  //                2) Head is tail (just one element)
+  //                3) Target is head
+  //                4) Target is in middle of LL
+  //                5) Target is tail
+
+  // case 1 - empty list
   if (!cur) return undefined;
+
+  // case 2 & 3 - head is val / head === tail
   if (cur.val === target) {
-    this.head = cur.next;
-    this.head.prev = null;
     if (cur === this.tail) {
-      this.tail === this.head;
+      this.head = null;
+      this.tail = null;
+      return cur;
+    } else {
+      this.head = this.head.next;
+      this.head.prev = null;
       return cur;
     }
   }
-  while(cur) {
-    if (!cur.next) return undefined;
-    if (cur.next.val === target) break;
+
+  // case 4 & 5 - head is in middle / is tail
+  while (cur) {
+    if (!cur.next) return undefined // have iterated through list and not found
+    if (cur.next.val === target) break; // have found the target as next node;
     cur = cur.next;
   }
-  let returnNode = cur.next;
-  let newNext = cur.next.next;
-  if (newNext) {
-    newNext.prev = cur;
-  }
-  if (!newNext) {
+  // target is tail case
+  if (cur.next.next === null) {
     this.tail = cur;
+    let tmp = cur.next;
+    cur.next = null;
+    return tmp;
+  } else {
+    let targetNode = cur.next;
+    cur.next = cur.next.next;
+    cur.next.next.prev = cur;
+    return targetNode
   }
-  cur.next = newNext;
-  return returnNode;
+
 };
 
 // let ll = new LinkedList()
@@ -67,6 +84,6 @@ LinkedList.prototype.remove = function(target) {
 // ll.add(20)
 // ll.remove(5)
 // ll.add(100)
-
 // console.log(ll)
+
 module.exports = LinkedList;
