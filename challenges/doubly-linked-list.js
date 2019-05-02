@@ -29,6 +29,10 @@ Removes the first node with the inputted value
   remove(val) {
     let current = this.head;
     let prev = null;
+    if (this.head.val === val) {
+      this.head.next.prev = null;
+      this.head = this.head.next;
+    }
 
     while (current.next) {
       if (current.val === val) {
