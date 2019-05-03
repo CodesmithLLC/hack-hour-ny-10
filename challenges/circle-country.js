@@ -30,7 +30,6 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   for (let i = 0; i < r.length; i++) {
     circles.push({ x: x[i], y: y[i], r: r[i], count: 0 });
   }
-  console.log(circles);
 
   for (let circle of circles) {
     if (contains(circle, { pointX: start_x, pointY: start_y })) {
