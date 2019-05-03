@@ -33,7 +33,7 @@ Removes the first node with the inputted value
 
     while (current) {
       if (current.val === val) {
-        if (current === this.head) {
+        if (this.head === this.tail) {
           current.prev = null;
           this.head = current.next;
         } else if (current === this.tail) {
