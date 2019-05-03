@@ -23,7 +23,43 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // if the start and end happen to not be within circles (or they are within the same circle)
+  // then the answer is 0 (since Tyus will be able to sneak between any circle gaps)
+  // so, just figure out which how many circles Tyus and the end are in and subtract off the circles they share
+  const circles = [];
+  for (let i = 0; i < r.length; i++) {
+    circles.push({ x: x[i], y: y[i], r: r[i], count: 0 });
+  }
+  console.log(circles);
 
+  for (let circle of circles) {
+    if (contains(circle, { pointX: start_x, pointY: start_y })) {
+      circle.count += 1;
+    }
+    if (contains(circle, { pointX: end_x, pointY: end_y })) {
+      circle.count += 1;
+    }
+  }
+
+  return circles.reduce((acc, el) => {
+    if (el.count === 1) {
+      acc++;
+    }
+    return acc;
+  }, 0);
+}
+
+function contains(circle, point) {
+  const { x: circleX, y: circleY, r: radius } = circle;
+  const { pointX, pointY } = point;
+  // calculate the distance from the point to the circle's center
+  // if that distance is less than the radius, then the point is in the circle
+  const distance = Math.sqrt(Math.abs(circleX - pointX) ** 2 + Math.abs(circleY - pointY) ** 2); // pythagorean
+  if (distance < radius) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = circleCountry;
