@@ -10,43 +10,39 @@
  */
 
 function getAllProducts(array) {
-  let zeroCount = array.filter(el => el === 0).length;
-  if (zeroCount > 1) return array.fill(0);
-
-  if (array.length === 1) return array;
-
-  // should exclude first element in totalProduct, in case it just barely overflows (divide then multiply)
-  let totalProduct = array[1];
-  for (let i = 2; i < array.length; i++) {
-    totalProduct *= array[i];
-  }
-
-  // reduce version:
-  // totalProduct = array.reduce((acc, el, i) => {
-  //   if (i !== 1 && i !== 2) {
-  //     acc *= el;
+  // let zeroCount = array.filter(el => el === 0).length;
+  // if (zeroCount > 1) return array.fill(0);
+  // if (array.length === 1) return array;
+  // // should exclude first element in totalProduct, in case it just barely overflows (divide then multiply)
+  // let totalProduct = array[1];
+  // for (let i = 2; i < array.length; i++) {
+  //   totalProduct *= array[i];
+  // }
+  // // reduce version:
+  // // totalProduct = array.reduce((acc, el, i) => {
+  // //   if (i !== 1 && i !== 2) {
+  // //     acc *= el;
+  // //   }
+  // //   return acc;
+  // // }, array[1]);
+  // let output = [totalProduct];
+  // for (let i = 1; i < array.length; i++) {
+  //   if (array[i] === 0) {
+  //     output.push(
+  //       array.reduce((acc, el, idx) => {
+  //         if (idx !== i) {
+  //           acc *= el;
+  //         }
+  //         return acc;
+  //       }),
+  //     );
+  //   } else {
+  //     totalProduct /= array[i];
+  //     totalProduct *= array[i - 1];
+  //     output.push(totalProduct);
   //   }
-  //   return acc;
-  // }, array[1]);
-
-  let output = [totalProduct];
-  for (let i = 1; i < array.length; i++) {
-    if (array[i] === 0) {
-      output.push(
-        array.reduce((acc, el, idx) => {
-          if (idx !== i) {
-            acc *= el;
-          }
-          return acc;
-        }),
-      );
-    } else {
-      totalProduct /= array[i];
-      totalProduct *= array[i - 1];
-      output.push(totalProduct);
-    }
-  }
-  return output;
+  // }
+  // return output;
 }
 
 module.exports = getAllProducts;
