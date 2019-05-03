@@ -27,21 +27,27 @@ Adds a node to the end of the list
 Removes the first node with the inputted value
  */
   remove(val) {
-    let current = this.head;
-    let prev = null;
-    if (this.head.val === val) {
-      this.head.next.prev = null;
-      this.head = this.head.next;
-    }
+    if (!this.head) return undefined;
 
-    while (current.next) {
+    let current = this.head;
+
+    while (current) {
       if (current.val === val) {
-        prev.next = current.next;
-        current.next.prev = current.prev;
+        if (current === this.head) {
+          current.prev = null;
+          this.head = current.next;
+        } else if (current === this.tail) {
+          current.prev.next = null;
+          this.tail = current.prev;
+        } else {
+          current.prev.next = current.next;
+          current.next.prev = current.prev;
+        }
+        return current.val;
       }
       current = current.next;
-      prev = current.prev;
     }
+    return 'value not found';
   }
 }
 
@@ -61,3 +67,81 @@ class Node {
 // console.log(newList);
 
 module.exports = LinkedList;
+
+// approach:
+
+// function LinkedList() {
+//   this.head = null;
+//   this.tail = null;
+// }
+
+// function Node(val) {
+//   this.value = val;
+//   this.next = null;
+//   this.prev = null;
+// }
+
+// /*
+// Adds a node to the end of the list
+//  */
+// LinkedList.prototype.add = function(val) {
+
+//   const newNode = new Node(val);
+
+//   // check for empty list
+//   if (!this.head) {
+//     this.head = newNode;
+//     this.tail = newNode;
+//   }
+//   else {
+//     // we're setting the next of the tail to the new node
+//     this.tail.next = newNode;
+//     // assigning the new node's prev pointer to tail
+//     newNode.prev = this.tail;
+//     // reassigning the tail pointer
+//     this.tail = newNode;
+//   }
+
+// };
+
+// /*
+// Removes the first node with the inputted value
+//  */
+// LinkedList.prototype.remove = function(val) {
+
+//   if (!this.head) return undefined;
+
+//   let current = this.head;
+
+//   while (current) {
+//     // if there is only one node in the list
+//     if (current.value === val && this.head === this.tail) {
+//       this.head = null;
+//       this.tail = null;
+//     }
+//     // if value is found in the head
+//     else if (current.value === val && current === this.head){
+//       // reassign the head pointer
+//       this.head = this.head.next;
+//       // dereference node accordingly
+//       this.head.prev = null;
+//       return current.value;
+//     }
+//     // if value is found in the middle of the list
+//     else if (current.value === val && current.next) {
+//       // assign prev node to connect to current's next
+//       current.prev.next = current.next;
+//       // reassign the prev of current's next to point to the prev node
+//       current.next.prev = current.prev;
+//       return current.value;
+//     }
+//     // if value is found at the end of the list
+//     else if (current.value === val && !current.next) {
+//       current.prev.next = null;
+//       this.tail = current.prev;
+//       return current.value;
+//     }
+//     current = current.next;
+//   }
+//   return "no such value"
+// };
