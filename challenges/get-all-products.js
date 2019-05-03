@@ -10,7 +10,25 @@
  */
 
 function getAllProducts(array) {
+  const newArr = [];
+  let product;
+  let count = 1;
+  for (let i = 0; i < array.length; i++) {
+    product = array[i];
+    for (let j = i + 1; j < array.length; j++) {
 
+      if (count === array.length-1) {
+        newArr.push(product);
+        count = 1;
+      } else {
+        product *= array[j]
+        console.log(product)
+        count += 1;
+      }
+  }
+  console.log(newArr)
 }
+
+console.log(getAllProducts([1, 7, 3, 4])); //->  [84, 12, 28, 21]
 
 module.exports = getAllProducts;
