@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable func-names */
 /*
  * Create a stack with the push, pop, and getMax methods.
  * push should return the new length of the stack.
@@ -7,48 +9,54 @@
  */
 
 function Stack() {
-  // body...
-  this.stack = {};
   this.length = 0;
+  this.store = {};
   this.max = {
-    value: undefined,
-    count: 0,
+    idx: 0,
+    val: Number.NEGATIVE_INFINITY,
   };
 }
 
-Stack.prototype.push = function (value) {
-  if (!this.length || value > this.max.value) this.max = { value, count: 1 };
-  else if (value === this.max.value) this.max.count++;
+Stack.prototype.setNewMax = function () {
+  for (const i in this.store) {
+    if (this.store[i] > this.max.val) {
+      this.max.val = this.store[i];
+      this.max.idx = i;
+    }
+  }
+};
 
-  this.stack[this.length] = value;
-  return ++this.length;
+Stack.prototype.resetMax = function () {
+  this.max.val = Number.NEGATIVE_INFINITY;
+  this.max.idx = -1;
+};
+
+Stack.prototype.push = function (v) {
+  if (v > this.max.val) {
+    this.max.idx = this.length;
+    this.max.val = v;
+  }
+  this.store[this.length] = v;
+  this.length++;
+  return this.length;
 };
 
 Stack.prototype.pop = function () {
-  if (!this.length) return undefined;
+  if (this.length === 0) return undefined;
 
-  const last = this.stack[this.length - 1];
-  delete this.stack[--this.length];
-
-  this.max.count--;
-  if (this.length === 0) {
-    this.max = { value: undefined, count: 0 };
-  } else if (this.length > 0 && this.max.count === 0) {
-    const newMax = { value: this.stack[0], count: 1 };
-    for (let i = 1; i < this.length; i += 1) {
-      if (this.stack[i] > newMax.value) {
-        newMax = { value: this.stack[i], count: 1 };
-      } else if (this.stack[i] === newMax.value) {
-        newMax.count++;
-      }
-    }
+  const popped = this.store[this.length - 1];
+  if (popped === this.max.val) {
+    this.resetMax();
   }
+  delete this.store[this.length - 1];
+  this.setNewMax();
 
-  return last;
+  this.length -= 1;
+  return popped;
 };
 
 Stack.prototype.getMax = function () {
-  return this.max.value;
+  return this.length === 0 ? undefined : this.max.val;
 };
 
 module.exports = Stack;
