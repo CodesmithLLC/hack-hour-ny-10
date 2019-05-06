@@ -26,17 +26,24 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  let book = new Map(jazbook)
+  let resp =  book.get(name)
+  return (resp) ? resp : false;
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
-
+function makePhoneBookObject(jazbook) {
+  return jazbook.reduce((acc, cur) => {
+    acc[cur[0]] = cur[1];
+    return acc;
+  }, {})
 }
 
 const objectToExport = {
   findName,
-  makePhoneBookObject,
+  makePhoneBookObject
 };
 
 module.exports = objectToExport;
+
+
