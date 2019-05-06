@@ -39,7 +39,7 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
       circle.count += 1;
     }
   }
-
+  //testing 12
   return circles.reduce((acc, el) => {
     if (el.count === 1) {
       acc++;
