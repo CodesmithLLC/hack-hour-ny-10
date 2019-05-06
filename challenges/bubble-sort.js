@@ -18,6 +18,6 @@ function bubbleSort(array) {
     } return array;
 }
 
-console.log(bubbleSort([1,6,2,5,4,3]));
+//console.log(bubbleSort([1,6,2,5,4,3]));
 
 module.exports = bubbleSort;
