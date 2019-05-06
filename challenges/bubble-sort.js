@@ -14,3 +14,23 @@ function bubbleSort(array) {
 }
 
 module.exports = bubbleSort;
+
+// const arr = [1, 5, 7, 3, 8, 9, 2];
+
+// // worst case : O(n^2) quadratic
+// // best case: O(n) linear
+
+// function bubbleSort(arr) {
+//   let swapped = true;
+
+//   while (swapped) {
+//     swapped = false;
+//     for (let i = 0; i < arr.length; i += 1) {
+//       if (arr[i] > arr[i + 1]) {
+//         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+//         swapped = true;
+//       };
+//     };
+//   };
+//   return arr;
+// };
