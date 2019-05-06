@@ -23,7 +23,40 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  const distance = (x1, y1, x2, y2) => {
+    const distanceOfX = x1 - x2;
+    const distanceOfY = y1 - y2;
+    return Math.sqrt(distanceOfX ** 2 + distanceOfY ** 2);
+  };
 
+  let borderCrossings = 0;
+
+  // Iterating through all circles, incrementing a count of # of times a border was crossed.
+  for (let i = 0; i < r.length; i += 1) {
+    // Distance from current circle center to Tyrus.
+    const startDist = distance(x[i], y[i], start_x, start_y);
+    // Distance from current circle center to the end.
+    const endDist = distance(x[i], y[i], end_x, end_y);
+
+    if (
+      (startDist > r[i] && r[i] > endDist) ||
+      (startDist < r[i] && r[i] < endDist)
+    ) {
+      borderCrossings += 1;
+    }
+  }
+
+  return borderCrossings;
 }
+
+const x = [7, 6, 2, 14, 6];
+const y = [9, 8, 14, 15, 8];
+const r = [5, 2, 1, 2, 3];
+const start_x = 10;
+const start_y = 10;
+const end_x = 6;
+const end_y = 7;
+
+circleCountry(x, y, r, start_x, start_y, end_x, end_y);
 
 module.exports = circleCountry;
