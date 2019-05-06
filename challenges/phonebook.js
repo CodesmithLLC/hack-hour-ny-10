@@ -26,12 +26,37 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  // can't be better time-complexity than linear, sorting then binary searching would be slower
+  // let's hope that JS native find is a linear scan
+  const entry = jazbook.find(entry => entry[0] === name);
+  return entry ? entry[1] : false;
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
+function makePhoneBookObject(jazbook) {
+  class PhoneBookObject {
+    constructor(jazbook) {
+      this.entries = new Map();
+      for (let [name, number] of jazbook) {
+        this.entries.set(name, number);
+      }
+    }
 
+    lookup(name) {
+      return this.entries.has(name) ? this.entries.get(name) : false;
+    }
+
+    add(name, number) {
+      this.entries.set(name, number);
+      return this.entries.size;
+    }
+
+    remove(name) {
+      this.entries.delete(name);
+    }
+  }
+
+  return new PhoneBookObject(jazbook);
 }
 
 const objectToExport = {
