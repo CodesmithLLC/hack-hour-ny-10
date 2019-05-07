@@ -53,30 +53,30 @@ function newIntersections(x, y) {
     let currOldPoint = { x: x[i], y: y[i] };
     // mark all points directly to the left
     for (let coord = currOldPoint.x - 1; coord >= 0; coord--) {
-      if (!grid[coord]) continue
-      if (!grid[currOldPoint.y]) continue
-      if (!grid[currOldPoint.x]) continue
+      if (!grid[coord]) continue;
+      if (!grid[currOldPoint.y]) continue;
+      if (!grid[currOldPoint.x]) continue;
       grid[coord][currOldPoint.y].leftFlag = true;
     }
     // mark all points directly to the right
     for (let coord = currOldPoint.x + 1; coord < grid[0].length; coord++) {
-      if (!grid[coord]) continue
-      if (!grid[currOldPoint.y]) continue
-      if (!grid[currOldPoint.x]) continue
+      if (!grid[coord]) continue;
+      if (!grid[currOldPoint.y]) continue;
+      if (!grid[currOldPoint.x]) continue;
       grid[coord][currOldPoint.y].rightFlag = true;
     }
     // mark all points directly up
     for (let coord = currOldPoint.y - 1; coord >= 0; coord--) {
-      if (!grid[coord]) continue
-      if (!grid[currOldPoint.y]) continue
-      if (!grid[currOldPoint.x]) continue
+      if (!grid[coord]) continue;
+      if (!grid[currOldPoint.y]) continue;
+      if (!grid[currOldPoint.x]) continue;
       grid[currOldPoint.x][coord].upFlag = true;
     }
     // mark all points directly down
     for (let coord = currOldPoint.y + 1; coord < grid.length; coord++) {
-      if (!grid[coord]) continue
-      if (!grid[currOldPoint.y]) continue
-      if (!grid[currOldPoint.x]) continue
+      if (!grid[coord]) continue;
+      if (!grid[currOldPoint.y]) continue;
+      if (!grid[currOldPoint.x]) continue;
       grid[currOldPoint.x][coord].downFlag = true;
     }
   }
@@ -93,5 +93,5 @@ function newIntersections(x, y) {
 
   return count;
 }
-}
+
 module.exports = newIntersections;
