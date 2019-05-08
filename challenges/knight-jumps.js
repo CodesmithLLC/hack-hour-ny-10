@@ -10,8 +10,26 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
+// const moves = {
+//   '(1 1)': 2,
+//   '(1 8)':2,
+//   '(8 1)':2,
+//   '(8 8)':2,
+// }
 
+const moveMatrix = [
+  [2,3,4,4,4,4,3,2],
+  [3,4,6,6,6,6,4,3],
+  [4,6,8,8,8,8,6,4],
+  [4,6,8,8,8,8,6,4],
+  [4,6,8,8,8,8,6,4],
+  [4,6,8,8,8,8,6,4],
+  [3,4,6,6,6,6,4,3],
+  [2,3,4,4,4,4,3,2]
+]
+
+function knightjumps(str) {
+  return moveMatrix[str.slice(1,2) - 1][str.slice(3,4) - 1];
 }
 
 module.exports = knightjumps;
