@@ -11,7 +11,18 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const x = parseInt(str[1]);
+  const y = parseInt(str[3]);
+  let count = 8;
+  let options = [[1, 3], [1, -3], [3, 1], [3, -1], [-1, 3], [-1, -3], [-3, 1], [-3, -1]];
+  for (let [xO, yO] of options) {
+    count -= insideBoard(x + xO, y + yO) ? 0 : 1;
+  }
+  return count;
+}
 
+function insideBoard(x, y) {
+  return x > 0 && x < 9 && y > 0 && y < 9;
 }
 
 module.exports = knightjumps;
