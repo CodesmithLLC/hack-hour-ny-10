@@ -11,7 +11,49 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const arr = str.split('');
+  const x = arr[1];
+  const y = arr[3];
+  const xBoard = [1, 2, 3, 4, 5, 6, 7, 8];
+  const yBoard = [1, 2, 3, 4, 5, 6, 7, 8];
 
+  if (x >= 3 && x <= 6 && (y >= 3 && y <= 6)) {
+    return 8;
+  }
+  if ((x === 2 || x === 7) && (y >= 3 && y <= 6)) {
+    return 6;
+  }
+  if ((x === 1 || x === 8) && (y >= 3 && y <= 6)) {
+    return 4;
+  }
+  if ((x === 2 || x === 7) && (y === 2 || y === 7)) {
+    return 4;
+  }
+  if ((x === 1 || x === 8) && (y === 2 || y === 7)) {
+    return 3;
+  }
+  if ((x === 2 || x === 7) && (y === 1 || y === 8)) {
+    return 2;
+  }
+  if (((x === 1 || x === 8) && y === 1) || y === 8) {
+    return 2;
+  }
+
+  if ((y === 2 || y === 7) && (x >= 3 && x <= 6)) {
+    return 6;
+  }
+  if ((y === 1 || y === 8) && (x >= 3 && x <= 6)) {
+    return 4;
+  }
+  // if ((y === 2 || y === 7) && (x >= 2 && x <= 6)) {
+  //   return 6;
+  // }
+  // if ((y === 1 || y === 8) && (x >= 3 && x <= 6)) {
+  //   return 4;
+  // }
 }
+
+let str = '(4 5)';
+console.log(knightjumps(str));
 
 module.exports = knightjumps;
