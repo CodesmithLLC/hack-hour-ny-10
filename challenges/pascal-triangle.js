@@ -33,7 +33,19 @@
 */
 
 function pascalTriangle(numRows) {
-
+  if(numRows < 1 || typeof numRows !== 'number') return [];
+  const result = [[1]];
+  if(numRows === 1) return result;
+  if(numRows === 2) return [[1], [1,1]];
+  for(let i = 0; i < numRows - 1; i++) {
+    const last = result[result.length-1];
+    const arr = [1];
+    for(let j = 0; j < last.length-1; j++) {
+      const sum = last[j] + last[j+1];
+      arr.push(sum);
+    } arr.push(1);
+    result.push(arr);
+  } return result;
 }
-
+//console.log(pascalTriangle(6))
 module.exports = pascalTriangle;
