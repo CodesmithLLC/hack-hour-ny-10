@@ -75,3 +75,40 @@ const objectToExport = {
 };
 
 module.exports = objectToExport;
+
+// // helper function that converts initial pb into an object
+// // time complexity for sorting is typically O(nlogn)
+// function parseContacts (jazbook) {
+//   return jazbook.reduce((acc,contact)=>{
+//     acc[contact[0]] = contact[1]
+//     return acc;
+//   },{})
+// }
+
+// //  return the number associated with the name in the jazbook
+// function findName(jazbook, name) {
+//   const convertedObj = parseContacts(jazbook)
+//   return name in convertedObj ? convertedObj[name] : 'Name does not exist'
+// }
+
+// // return an object literal representing the jazbook
+// function makePhoneBookObject(jazbook) {
+//   this.phonebook = parseContacts(jazbook);
+// }
+
+// makePhoneBookObject.prototype.add = function (name, number) {
+//   this.phonebook[name] = number;
+//   return this.phonebook;
+// }
+
+// makePhoneBookObject.prototype.lookup = function (name) {
+//   return name in this.phonebook ? this.phonebook[name] : 'Name does not exist'
+// }
+
+// makePhoneBookObject.prototype.remove = function (name, number) {
+//   if (name in this.phonebook) {
+//     delete this.phonebook[name];
+//     return `deleted ${name}`
+//   }
+//   return 'Name does not exist';
+// }
