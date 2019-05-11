@@ -43,8 +43,36 @@ expectations = {
 
 
 function getPINs(observed) {
-
+  const data = {
+    '0': ['0','8'],
+    '1': ['1','2','4'],
+    '2': ['2','1','3','5'],
+    '3': ['3','2','6'],
+    '4': ['1','5','7'],
+    '5': ['5','2','4','6','8'],
+    '6': ['6','3','5','9'],
+    '7': ['7','4','8'],
+    '8': ['8','5','7','9','0'],
+    '9': ['9','6','8'],
+  }
+  const total = observed.split('').reduce((acc, item) => {
+    acc.push(data[item]);
+    return acc;
+  }, []);
+  const result = [];
+  combinations(total, result);
+  return result;
 }
-
+function combinations(arr, result, prefix = '', index = 0) {
+  if(index === arr.length) result.push(prefix);
+  else {
+    const set = arr[index];
+    for(let i = 0; i < set.length; i++) {
+      //console.log(i, prefix, set[i], arr.length);
+      combinations(arr, result, prefix + set[i], index+1);
+    }
+  }
+}
+//console.log(getPINs('369'));
 
 module.exports = getPINs
