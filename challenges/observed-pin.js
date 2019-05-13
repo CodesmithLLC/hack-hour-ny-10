@@ -84,7 +84,6 @@ const getAdj = num => {
     output.push(KEYPAD[row][col - 1]);
     if (col + 1 < KEYPAD[row].length && KEYPAD[row][col + 1] !== null)
     output.push(KEYPAD[row][col + 1]);
-    console.log(output)
   if (row + 1 < KEYPAD.length && KEYPAD[row + 1][col] !== null) 
     output.push(KEYPAD[row + 1][col])
   return output;
