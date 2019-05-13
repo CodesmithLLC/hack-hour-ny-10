@@ -20,6 +20,6 @@ function countStairs(n, total = 0) {
     if(total === n) return 1;
     return countStairs(n, total + 1) + countStairs(n, total + 2);
 }
-console.log(countStairs(4));
+//console.log(countStairs(4));
 
 module.exports = countStairs;
