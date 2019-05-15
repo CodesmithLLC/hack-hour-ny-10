@@ -26,6 +26,27 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  let totalExpected = ((Array.length + 1) / 2) * (Array.length + 2);
+  //let totalCurrent = (Array.length / 2) * (Array.length + 1);
+
+  for (let i = 0; i < Array.length; i++) {
+    totalExpected = totalExpected - Array[i];
+  }
+
+  return totalExpected;
+  //console.log(totalExpected, totalCurrent);
+  //return totalExpected - totalCurrent;
+
+  // //iterate through the array up to second to last el
+  // for(let i = 0; i < Array.length - 1; i++) {
+  //   //check if element after first element is equal to +1
+  //   if (Array[i] + 1 !== Array[i + 1]) {
+  //     //if not, return i + 1 value
+  //     return Array[i + 1];
+  //   }
+  // }
 }
+
+console.log(missingNum([2, 3, 1, 7, 5, 4, 8]));
 
 module.exports = missingNum;
