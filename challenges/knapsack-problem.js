@@ -14,7 +14,7 @@ const items1 = [
 ];
 
 const solveKnapsack = (items, maxWeight) => {
-  if (!items || !maxWeight) return undefined;
+  if (!items || !maxWeight) return 0;
   // ! Create matrix to store intermediate values in for each potential weight
   // ! up to max weight
   const matrix = new Array(maxWeight + 1).fill(0);
