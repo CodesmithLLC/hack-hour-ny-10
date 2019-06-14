@@ -13,17 +13,48 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
+// function reverseInPlace(array) {
+//   const size = array.length;
+//   for (let index = 2; index <= size; index += 1) {
+//     array.push(array[size - index]);
+//   }
+//   for (let index = 0; index < size - 1; index += 1) {
+//     array.shift();
+//   }
+//   return array;
+// }
+
 function reverseInPlace(array) {
-    let size = array.length;
-    for (let index = 2; index <= size; index += 1) {
-        array.push(array[size - index])
-    }
-    for (let index = 0; index < size - 1  ; index += 1) {
-        array.shift();
-    }
-    return array;
+  let temp = 0;
+  let start = 0;
+  let end = array.length - 1;
+  while (start < end) {
+    temp = array[start];
+    array[start] = array[end];
+    array[end] = temp;
+    start++;
+    end--;
+  }
+  return array;
 }
 
-console.log(reverseInPlace([1,2,3,4,5,6,7,8,9,10]))
+function reverseInPlaceEfficient2(array) {
+  array.push(0, 0, array.length - 1);
+  while (array[array.length - 2] < array[array.length - 1]) {
+    array[array.length - 3] = array[array[array.length - 2]];
+    array[array[array.length - 2]] = array[array[array.length - 1]];
+    array[array[array.length - 1]] = array[array.length - 3];
+    array[array.length - 2]++;
+    array[array.length - 1]--;
+  }
+  array.pop();
+  array.pop();
+  array.pop();
+  return array;
+}
+
+console.log(reverseInPlace([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(reverseInPlaceEfficient([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(reverseInPlaceEfficient2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 module.exports = reverseInPlace;
