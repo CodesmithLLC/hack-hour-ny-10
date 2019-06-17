@@ -64,18 +64,18 @@ function balancedParens(input) {
   const parens = {
     '[': ']',
     '(': ')',
-    '{': '}'
+    '{': '}',
   };
   // Loop through characters in string
-  for (let i = 0; i < input.length; i++) {
-    let currentCharacter = input[i];
+  for (let i = 0; i < input.length; i += 1) {
+    const currentCharacter = input[i];
     // If current character is an open bracket, push onto stack
     if (parens[currentCharacter]) stack.push(currentCharacter);
     // Else if current character is a close bracket...
     else if (
-      currentCharacter === ')' ||
-      currentCharacter === ']' ||
-      currentCharacter === '}'
+      currentCharacter === ')'
+      || currentCharacter === ']'
+      || currentCharacter === '}'
     ) {
       // if current character is not the corresponding closing paren to last paren on stack
       // return false

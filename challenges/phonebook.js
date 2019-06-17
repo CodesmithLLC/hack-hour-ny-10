@@ -18,9 +18,9 @@
 *
 * How efficient can you make this?
 
-* Part 2: 
+* Part 2:
 * Why are we storing names and phone numbers in an array?
-* develop a function that takes in the poorly constructed jazbook and returns a proper phonebook 
+* develop a function that takes in the poorly constructed jazbook and returns a proper phonebook
 * complete with methods to add new names and look up and remove existing entries
 */
 
@@ -31,7 +31,7 @@ function findName(jazbook, name) {}
 class makePhoneBookObject {
   constructor(jazbook) {
     this.phonebook = {};
-    jazbook.forEach(entry => {
+    jazbook.forEach((entry) => {
       this.phonebook[entry[0]] = entry[1];
     });
   }
@@ -42,17 +42,17 @@ class makePhoneBookObject {
   }
 
   lookup(name) {
-    if (this.phonebook.hasOwnProperty(name)) {
+    if (this.phonebook[name]) {
       return this.phonebook[name];
-    } else return 'no such name in phonebook';
+    } return 'no such name in phonebook';
   }
 
   remove(name) {
-    if (this.phonebook.hasOwnProperty(name)) {
+    if (this.phonebook[name]) {
       const toDelete = this.phonebook[name];
       delete this.phonebook[name];
       return toDelete;
-    } else return 'no such name in phonebook';
+    } return 'no such name in phonebook';
   }
 }
 
@@ -61,7 +61,7 @@ const jazbook = [
   ['jae', '301-844-1211'],
   ['david', '301-844-0978'],
   ['travis', '301-844-8505'],
-  ['jasmine', '1800-974-4539']
+  ['jasmine', '1800-974-4539'],
 ];
 // const phonebook = new makePhoneBookObject(jazbook);
 // phonebook.add('nel', '1234567');
@@ -71,7 +71,7 @@ const jazbook = [
 
 const objectToExport = {
   findName,
-  makePhoneBookObject
+  makePhoneBookObject,
 };
 
 module.exports = objectToExport;

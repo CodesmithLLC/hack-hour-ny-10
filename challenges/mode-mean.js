@@ -20,13 +20,13 @@ function modemean(array) {
     return acc;
   }, {});
 
-  for (let key in tallyOfAppearances) {
+  for (const key in tallyOfAppearances) {
     if (tallyOfAppearances[key] > maxAppearances) {
       mode = key;
       maxAppearances = tallyOfAppearances[key];
     }
   }
-  return mode == mean;
+  return mode === mean;
 }
 
 module.exports = modemean;

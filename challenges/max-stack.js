@@ -28,7 +28,7 @@ class Stack {
     // reset maxVal
     this.maxVal = -Infinity;
     // find new maxVal
-    for (let key in this.stack) {
+    for (const key in this.stack) {
       if (this.stack[key] > this.maxVal) {
         this.maxVal = this.stack[key];
       }
@@ -41,7 +41,7 @@ class Stack {
 
   getMax() {
     if (this.index === 0) return undefined;
-    else return this.maxVal;
+    return this.maxVal;
   }
 }
 

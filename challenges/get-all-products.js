@@ -37,7 +37,7 @@
 function getAllProducts(arr) {
   if (!arr || arr.length === 0) return [0];
 
-  let output = new Array(arr.length);
+  const output = new Array(arr.length);
   output[0] = 1;
   for (let i = 1; i < arr.length; i += 1) {
     output[i] = output[i - 1] * arr[i - 1];

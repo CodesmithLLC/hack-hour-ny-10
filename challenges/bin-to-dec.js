@@ -28,17 +28,17 @@
 
 const binToDec = (bin, res = 0) => {
   if (!bin.length) return res;
-  const split = bin.split("");
+  const split = bin.split('');
   return binToDec(
     bin.slice(1),
-    (res += parseInt(split[0]) * Math.pow(2, bin.length - 1))
+    (res += parseInt(split[0]) * Math.pow(2, bin.length - 1)),
   );
 };
 
-console.log(binToDec("0"));
-console.log(binToDec("11"));
-console.log(binToDec("100"));
-console.log(binToDec("101"));
-console.log(binToDec("0101"));
+console.log(binToDec('0'));
+console.log(binToDec('11'));
+console.log(binToDec('100'));
+console.log(binToDec('101'));
+console.log(binToDec('0101'));
 
 module.exports = binToDec;

@@ -1,4 +1,5 @@
-'use strict';
+
+
 /**
  * Make an EventEmitter that
  *
@@ -40,7 +41,7 @@ class EventEmitter {
 
   trigger(event, ...args) {
     if (this.events[event]) {
-      this.events[event].forEach(func => {
+      this.events[event].forEach((func) => {
         func(...args);
       });
     } else return undefined;

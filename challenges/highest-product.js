@@ -7,7 +7,7 @@ function highestProduct(array) {
   let second = -Infinity;
   let third = -Infinity;
 
-  array.forEach(el => {
+  array.forEach((el) => {
     console.log('el ', el, 'first ', first, 'second ', second, 'third ', third);
     if (el > first) {
       [third, second, first] = [second, first, el];
