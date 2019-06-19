@@ -27,10 +27,12 @@
  *
  */
 
-const Node = function(value) {
-  this.value = value;
-  this.next = null;
-};
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
 
 // function hasCycle(head) {
 //   const repeats = {};
@@ -44,7 +46,7 @@ const Node = function(value) {
 //   return false;
 // }
 
-const hasCycle = head => {
+const hasCycle = (head) => {
   if (!head || !head.next) return false;
 
   let slowPointer = head;
@@ -52,10 +54,9 @@ const hasCycle = head => {
 
   while (fastPointer) {
     if (fastPointer.value === slowPointer.value) return true;
-    else {
-      slowPointer = slowPointer.next;
-      fastPointer = fastPointer.next.next;
-    }
+
+    slowPointer = slowPointer.next;
+    fastPointer = fastPointer.next.next;
   }
   return false;
 };
@@ -70,4 +71,4 @@ const hasCycle = head => {
 // node5.next = node2;
 // console.log(hasCycle(node1)); // true
 
-module.exports = { Node: Node, hasCycle: hasCycle };
+module.exports = { Node, hasCycle };

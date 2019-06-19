@@ -27,4 +27,16 @@ function reverseLinkedList(head) {
   return prev;
 }
 
-module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
+function reverseLinkedListRecursive(head) {
+  if (!head.next) return head;
+
+  const newStart = reverseLinkedListRecursive(head.next);
+
+  head.next.next = head;
+  // this ensures that the tail of the reversed linked list points at null
+  head.next = null;
+
+  return newStart;
+}
+
+module.exports = { Node, reverseLinkedList };

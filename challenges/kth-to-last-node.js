@@ -21,6 +21,7 @@ function Node(val) {
   this.next = null;
 }
 
+// Solution I: linear time & space complexity
 function kthToLastNode(k, head) {
   if (k <= 0) {
     return undefined;
@@ -36,11 +37,11 @@ function kthToLastNode(k, head) {
   return arrayOfVals[arrayOfVals.length - k];
 }
 
-const a = new Node("A");
-const b = new Node("B");
-const c = new Node("C");
-const d = new Node("D");
-const e = new Node("E");
+const a = new Node('A');
+const b = new Node('B');
+const c = new Node('C');
+const d = new Node('D');
+const e = new Node('E');
 
 a.next = b;
 b.next = c;
@@ -49,24 +50,14 @@ d.next = e;
 
 console.log(kthToLastNode(2, a));
 
-// Solution I: linear time & space complexity
-// function kthToLastNode(k, head) {
-//   let list = [];
-//   let currentNode = head;
-//   while (currentNode) {
-//     list.push(currentNode.value);
-//     currentNode = currentNode.next;
-//   }
-//   return list[list.length-k];
-// }
-// ​
+
 // // Solution II: linear time, constant space complexity
 // function kthToLastNode(k, head) {
 //   let lead = head;
 //   let leadIndex = 0;
 //   while (leadIndex < k && lead) {
 //     lead = lead.next;
-//     leadIndex++;
+//     leadIndex += 1;
 //   }
 //   // The following conditional accounts for values of K
 //   // greater than the length of the linked list
@@ -79,4 +70,4 @@ console.log(kthToLastNode(2, a));
 //   return follow.value;
 // }
 
-module.exports = { Node: Node, kthToLastNode: kthToLastNode };
+module.exports = { Node, kthToLastNode };

@@ -22,12 +22,12 @@ function fizzbuzz(num) {
     let itemToAdd;
 
     i % 15 === 0
-      ? (itemToAdd = "fizzbuzz")
+      ? (itemToAdd = 'fizzbuzz')
       : i % 5 === 0
-      ? (itemToAdd = "buzz")
-      : i % 3 === 0
-      ? (itemToAdd = "fizz")
-      : (itemToAdd = i);
+        ? (itemToAdd = 'buzz')
+        : i % 3 === 0
+          ? (itemToAdd = 'fizz')
+          : (itemToAdd = i);
 
     fizzBuzzArray.push(itemToAdd);
   }

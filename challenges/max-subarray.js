@@ -10,7 +10,7 @@
 function maxSubarray(arr) {
   let maxSum = arr[0];
   let currentSum = arr[0];
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i += 1) {
     currentSum = Math.max(currentSum + arr[i], arr[i]);
     maxSum = Math.max(currentSum, maxSum);
   }
@@ -20,7 +20,7 @@ function maxSubarray(arr) {
 // console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])); // 18 from [3, 10, -4, 7, 2]
 // console.log(maxSubarray([15, 20, -5, 10])); // 40
 
-// Anette's solution:
+// Annette's solution:
 
 // function maxSubarray(arr) {
 //   if (arr.length === 0) return 0;

@@ -61,4 +61,4 @@ function getAllProducts(arr) {
 
 module.exports = getAllProducts;
 
-console.log(getAllProducts([2, 3, 4, 5]));
+// console.log(getAllProducts([2, 3, 4, 5]));

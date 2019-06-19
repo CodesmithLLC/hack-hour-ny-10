@@ -20,7 +20,7 @@ function Node(val) {
 function addLinkedList(l1, l2) {
   let sum = 0;
   let currNode = new Node();
-  let head = currNode;
+  const head = currNode;
 
   while (l1 || l2 || sum) {
     if (l1) {
@@ -74,4 +74,4 @@ function addLinkedList(l1, l2) {
 
 // console.log(addLinkedList(list1, list2));
 
-module.exports = { Node: Node, addLinkedList: addLinkedList };
+module.exports = { Node, addLinkedList };

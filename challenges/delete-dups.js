@@ -17,7 +17,6 @@ function deleteDups(head) {
   buffer[head.value] = true;
 
   while (leading) {
-    console.log('CURRENT: ', current, 'LEADING: ', leading);
     if (buffer[leading.value]) {
       current.next = current.next.next;
       leading = leading.next;
@@ -48,8 +47,8 @@ const linkedList = {
   value: 1,
   next: {
     value: 1,
-    next: { value: 5, next: { value: 4, next: { value: 1, next: null } } }
-  }
+    next: { value: 5, next: { value: 4, next: { value: 1, next: null } } },
+  },
 };
 deleteDups(linkedList);
 console.log(linkedList);

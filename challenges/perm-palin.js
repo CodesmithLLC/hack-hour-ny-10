@@ -29,9 +29,8 @@ function permPalin(str) {
 
   if (count <= 1) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 // console.log(permPalin('cbac')); // false

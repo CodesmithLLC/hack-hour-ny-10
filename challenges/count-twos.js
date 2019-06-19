@@ -12,31 +12,30 @@
 Challenge: Write a function that takes a number as an argument, n. The function will return thenumber of 2's encoutered when counting from 1 to n
 */
 
-/* method 2 - optimized linear approach*/
+/* method 2 - optimized linear approach */
 
 function countTwos(num) {
-  var totalTwos = 0;
-  let numString = num.toString();
+  let totalTwos = 0;
+  const numString = num.toString();
   let digitsPlace = numString.length;
 
   for (let i = 0; i < numString.length; i++) {
     /* STRIP NUM STRING TO GET DIGIT + PLACE IN STRING */
     // get current digit, ex: 1 of 152
-    let currentDigit = Number(numString[i]);
+    const currentDigit = Number(numString[i]);
 
     // get base, ex: 100 = 1 in 152
-    let baseDigit = currentDigit * 10 ** (digitsPlace - 1);
+    const baseDigit = currentDigit * 10 ** (digitsPlace - 1);
 
     // Count the number of twos in the base value
     // ex: 100 -> 100 has 20 twos,
     // ex: 50 -> base is 1 * current number (5) -> 5
-    const baseCountTwos =
-      currentDigit * (digitsPlace - 1) * 10 ** (digitsPlace - 2);
+    const baseCountTwos = currentDigit * (digitsPlace - 1) * 10 ** (digitsPlace - 2);
 
     // Add baseCountTwos to totalTwos counter.
     console.log(
       'calculate base digit',
-      (digitsPlace - 1) * 10 ** (digitsPlace - 2)
+      (digitsPlace - 1) * 10 ** (digitsPlace - 2),
     );
     totalTwos += baseCountTwos;
     console.log('TOTAL TWOS: ', totalTwos);
@@ -72,7 +71,7 @@ function countTwos(num) {
       currentDigit,
       '=',
       'baseCountTwos',
-      baseCountTwos
+      baseCountTwos,
     );
     // reduce num to next digits place 152 becomes 52, 52 become 2
     num = remaining;
