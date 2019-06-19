@@ -19,7 +19,7 @@ function solveKnapsack(items, weightAvailable) {
     const currentWeight = weightAvailable[i];
 
     for (let j = 0; j < items.length; j += 1) {
-      const currentItem = items[i];
+      const currentItem = items[j];
       // if the item weighs nothing and has positive value we can fill the knapsack
       // with an infinite number of items
       if (currentItem.weight === 0 && currentItem.value > 0) return Infinity;
@@ -40,7 +40,6 @@ function solveKnapsack(items, weightAvailable) {
     // update knapsack with the max possible value at each capacity
     knapsack[currentWeight] = maxPossibleValue;
   }
-
 
   return knapsack[weightAvailable];
 }
