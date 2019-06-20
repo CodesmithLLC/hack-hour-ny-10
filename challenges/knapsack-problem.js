@@ -13,16 +13,16 @@ function solveKnapsack(items, weightAvailable) {
   // create an array to hold max possible value at each weight from 0 to weightAvailable
   const knapsack = new Array(weightAvailable + 1).fill(0);
 
-  for (let i = 0; i < weightAvailable; i += 1) {
+  for (let i = 0; i <= weightAvailable; i += 1) {
     // store the current max value for the current weight
     let maxPossibleValue = 0;
-    const currentWeight = weightAvailable[i];
+    const currentWeight = i;
 
     for (let j = 0; j < items.length; j += 1) {
       const currentItem = items[j];
       // if the item weighs nothing and has positive value we can fill the knapsack
       // with an infinite number of items
-      if (currentItem.weight === 0 && currentItem.value > 0) return Infinity;
+      if (currentItem.weight === 0 && currentItem.value !== 0) return Infinity;
 
       // if we can fit the current item into the knapsack
       if (currentItem.weight <= currentWeight) {
@@ -43,5 +43,8 @@ function solveKnapsack(items, weightAvailable) {
 
   return knapsack[weightAvailable];
 }
+
+const stuff = [{ weight: 1, value: 5 }, { weight: 3, value: 4 }, { weight: 2, value: 10 }, { weight: 5, value: 11 }];
+console.log(solveKnapsack(stuff, 12));
 
 module.exports = solveKnapsack;
