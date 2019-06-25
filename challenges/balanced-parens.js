@@ -24,8 +24,37 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  // Create stack to keep track of parens
+  const stack = [];
+  const parens = {
+    "[": "]",
+    "(": ")",
+    "{": "}"
+  };
+  // Loop through characters in string
+  for (let i = 0; i < input.length; i++) {
+    const currentCharacter = input[i];
+    // If current character is an open bracket, push onto stack
+    if (parens[currentCharacter]) stack.push(currentCharacter);
+    // Else if current character is a close bracket...
+    else if (
+      currentCharacter === ")" ||
+      currentCharacter === "]" ||
+      currentCharacter === "}"
+    ) {
+      // if current character is not the corresponding closing paren to last paren on stack
+      // return false
+      if (parens[stack.pop()] !== currentCharacter) {
+        return false;
+      }
+    }
+  }
+  // If stack is empty, return true. Else, return false.
+  return !stack.length;
 }
+
+console.log(balancedParens(" var wow  = { yo: thisIsAwesome() }"));
+console.log(balancedParens(" var hubble = function() { telescopes.awesome();"));
 
 module.exports = balancedParens;
