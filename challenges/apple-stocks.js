@@ -13,7 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  let biggestProfit = -Infinity;
+  let lowestPrice = Infinity;
+  for (let price of stock_prices_yesterday) {
+    lowestPrice = price < lowestPrice ? price : lowestPrice;
+    biggestProfit =
+      price - lowestPrice > biggestProfit ? price - lowestPrice : biggestProfit;
+  }
+  return biggestProfit;
 }
+
+console.log(
+  bestProfit([100, 100, 110, 80, 100, 120, 130, 70, 100, 110, 130, 10, 100]),
+);
+console.log(bestProfit([100, 100, 90, 80, 70, 10, 0]));
 
 module.exports = bestProfit;
